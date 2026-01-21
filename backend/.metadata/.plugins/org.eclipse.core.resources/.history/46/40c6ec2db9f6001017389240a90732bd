@@ -1,0 +1,15 @@
+package com.example.demo.entities;
+
+public class User {
+	
+	public int Uid;
+	public String Uname;
+	public String password;
+	public String Fnmae;
+	public String Lname;
+	public String Email;
+	public int Contact;
+	public String Gender;
+	
+	
+}
