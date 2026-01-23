@@ -1,83 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
+
+// send HTTP requests to backend
+import axios from "axios";
 
 function Register() {
+  // State to store all form input values
+  // Keys MUST match backend DTO field names
+  const [user, setUser] = useState({
+    fname: "",
+    lname: "",
+    uname: "",
+    password: "",
+    email: "",
+    contact: "",
+    gender: "",
+    roleid: "", // Role ID (1=Admin, 2=Trainer, 3=Member)
+  });
+
+  // Handles input changes for all fields
+  // Uses 'name' attribute to update the correct field
+  const handleChange = (e) => {
+    setUser({
+      ...user, // Keep existing values
+      [e.target.name]: e.target.value, // Update changed field
+    });
+  };
+
+  // Called when form is submitted
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send POST request to backend register API
+      await axios.post("http://localhost:8080/flexify/register", {
+        ...user,
+        roleid: parseInt(user.roleid),
+      });
+
+      alert("User registered successfully");
+    } catch (error) {
+      // Handle API or server errors
+      console.error(error);
+      alert("Registration failed");
+    }
+  };
+
   return (
+    // Center the form vertically and horizontally
     <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+      {/* Registration form */}
       <form
+        onSubmit={handleSubmit}
         className="p-4 bg-white rounded shadow"
         style={{ width: "100%", maxWidth: "450px" }}
       >
-        <h2 className="mb-4 text-center">Create Account</h2>
+        <h2 className="mb-4 text-center">Register User</h2>
 
-        {/* First Name */}
+        {/* First Name input */}
         <div className="form-floating mb-3">
           <input
             type="text"
             className="form-control"
-            id="fname"
+            name="fname"
             placeholder="First Name"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="fname">First Name</label>
+          <label>First Name</label>
         </div>
 
-        {/* Last Name */}
+        {/* Last Name input */}
         <div className="form-floating mb-3">
           <input
             type="text"
             className="form-control"
-            id="lname"
+            name="lname"
             placeholder="Last Name"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="lname">Last Name</label>
+          <label>Last Name</label>
         </div>
-        {/* Username */}
+
+        {/* Username input */}
         <div className="form-floating mb-3">
           <input
             type="text"
             className="form-control"
-            id="uname"
+            name="uname"
             placeholder="Username"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="uname">Username</label>
+          <label>Username</label>
         </div>
 
-        {/* Password */}
+        {/* Password input */}
         <div className="form-floating mb-3">
           <input
             type="password"
             className="form-control"
-            id="password"
+            name="password"
             placeholder="Password"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
         </div>
 
-        {/* Email */}
+        {/* Email input */}
         <div className="form-floating mb-3">
           <input
             type="email"
             className="form-control"
-            id="email"
+            name="email"
             placeholder="Email"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
         </div>
 
-        {/* Contact */}
+        {/* Contact number input */}
         <div className="form-floating mb-3">
           <input
             type="tel"
             className="form-control"
-            id="contact"
-            placeholder="Contact Number"
+            name="contact"
+            placeholder="Contact"
+            onChange={handleChange}
+            required
           />
-          <label htmlFor="contact">Contact Number</label>
+          <label>Contact</label>
         </div>
 
-        {/* Gender */}
+        {/* Gender dropdown */}
         <div className="mb-3">
           <label className="form-label fw-semibold">Gender</label>
-          <select className="form-select">
+          <select
+            className="form-select"
+            name="gender"
+            onChange={handleChange}
+            required
+          >
             <option value="">Select Gender</option>
             <option>Male</option>
             <option>Female</option>
@@ -85,24 +150,26 @@ function Register() {
           </select>
         </div>
 
-        {/* Role */}
+        {/* Role dropdown */}
         <div className="mb-4">
           <label className="form-label fw-semibold">Role</label>
-          <select className="form-select">
+          <select
+            className="form-select"
+            name="roleid"
+            onChange={handleChange}
+            required
+          >
             <option value="">Select Role</option>
-            <option>Admin</option>
-            <option>Member</option>
-            <option>Trainer</option>
+            <option value="1">Admin</option>
+            <option value="2">Trainer</option>
+            <option value="3">Member</option>
           </select>
         </div>
 
-        <button className="btn btn-primary w-100 py-2" type="submit">
+        {/* Submit button */}
+        <button className="btn btn-primary w-100" type="submit">
           Register
         </button>
-
-        <p className="mt-3 mb-0 text-center text-body-secondary">
-          Already have an account? <a href="/login">Sign in</a>
-        </p>
       </form>
     </div>
   );

@@ -3,10 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user")); // check login status
 
   const handleClick = (e, path) => {
-    e.preventDefault(); //stop page reload
+    e.preventDefault(); // stop page reload
     navigate(path);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return (
@@ -22,9 +28,7 @@ function Navbar() {
           <li className="nav-item">
             <a
               href="/"
-              onClick={(e) => {
-                handleClick(e, "/");
-              }}
+              onClick={(e) => handleClick(e, "/")}
               className="nav-link text-primary"
             >
               Home
@@ -52,14 +56,23 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* RIGHT : Buttons */}
+        {/* RIGHT : Login / Logout */}
         <div>
-          <button
-            className="btn btn-sm btn-primary me-2"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
+          {!user ? (
+            <button
+              className="btn btn-sm btn-primary me-2"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          ) : (
+            <button
+              className="btn btn-sm btn-primary me-2"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </nav>

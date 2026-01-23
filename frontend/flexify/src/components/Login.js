@@ -13,18 +13,19 @@ function Login() {
     e.preventDefault();
 
     try {
+      // Send login credentials to backend
       const response = await axios.post("http://localhost:8080/flexify/login", {
         email,
         password,
       });
 
-      const user = response.data; // 👈 User object from backend
+      const user = response.data; // User object from backend
       console.log(user);
 
       // store user data
       localStorage.setItem("user", JSON.stringify(user));
 
-      // role-based navigation
+      // navigate user based on role ID
       if (user.role.rid === 1) {
         navigate("/admin-dashboard");
       } else if (user.role.rid === 2) {

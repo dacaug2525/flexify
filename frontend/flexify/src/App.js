@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import AdminDashboard from "./components/AdminDashboard";
 import Register from "./components/Register";
+import MemberDashboard from "./components/MemberDashboard";
+import TrainerDashboard from "./components/TrainerDashboard";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/admin-dashboard" element={<AdminDashboard />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
+          <Route path="/member-dashboard" element={<MemberDashboard />} />
         </Routes>
       </BrowserRouter>
     </div>
