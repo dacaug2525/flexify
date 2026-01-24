@@ -7,14 +7,14 @@ function AdminDashboard() {
   return (
     <div className="container mt-4">
       <h2 className="mb-4 text-primary">Admin Dashboard</h2>
-
+       <hr></hr>
       <div className="row g-4">
         {/* Register User */}
         <div className="col-md-4">
           <div className="card shadow-sm text-center">
             <div className="card-body">
               <h5 className="card-title">Register User</h5>
-              <p className="card-text">Add Admin, Trainer or Member</p>
+              <p className="card-text">Add Trainer or Member</p>
               <Link to="/register" className="btn btn-primary btn-sm">
                 Register
               </Link>

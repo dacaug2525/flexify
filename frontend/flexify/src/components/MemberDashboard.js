@@ -1,7 +1,7 @@
 import React from "react";
 
 function MemberDashboard() {
-  return <div>Member Page</div>;
+  return <div>Welcome to Memeber Page</div>;
 }
 
 export default MemberDashboard;

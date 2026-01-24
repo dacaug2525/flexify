@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Register() {
-  // State to store all form input values
-  // Keys MUST match backend DTO field names
+   // which form to show: trainer | member | null
+  const [userType, setUserType] = useState(null);
+
+  // common state for both forms
   const [user, setUser] = useState({
     fname: "",
     lname: "",
@@ -14,165 +16,220 @@ function Register() {
     email: "",
     contact: "",
     gender: "",
-    roleid: "", // Role ID (1=Admin, 2=Trainer, 3=Member)
+    roleid: "",
   });
 
-  // Handles input changes for all fields
-  // Uses 'name' attribute to update the correct field
+  // handle input change
   const handleChange = (e) => {
     setUser({
-      ...user, // Keep existing values
-      [e.target.name]: e.target.value, // Update changed field
+      ...user,
+      [e.target.name]: e.target.value,
     });
   };
 
-  // Called when form is submitted
+  // submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Send POST request to backend register API
       await axios.post("http://localhost:8080/flexify/register", {
         ...user,
         roleid: parseInt(user.roleid),
       });
 
-      alert("User registered successfully");
+      alert(
+        userType === "trainer"
+          ? "Trainer registered successfully"
+          : "Member registered successfully"
+      );
+
+      // reset form
+      setUser({
+        fname: "",
+        lname: "",
+        uname: "",
+        password: "",
+        email: "",
+        contact: "",
+        gender: "",
+        roleid: "",
+      });
+      setUserType(null);
     } catch (error) {
-      // Handle API or server errors
       console.error(error);
       alert("Registration failed");
     }
   };
 
+  // when admin clicks buttons
+  const openTrainerForm = () => {
+    setUserType("trainer");
+    setUser({ ...user, roleid: "2" });
+  };
+
+  const openMemberForm = () => {
+    setUserType("member");
+    setUser({ ...user, roleid: "3" });
+  };
+
   return (
-    // Center the form vertically and horizontally
     <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-      {/* Registration form */}
-      <form
-        onSubmit={handleSubmit}
+      <div
         className="p-4 bg-white rounded shadow"
         style={{ width: "100%", maxWidth: "450px" }}
       >
-        <h2 className="mb-4 text-center">Register User</h2>
+        {/* BUTTONS */}
+        {!userType && (
+          <>
+            <h3 className="text-center mb-4">Admin Panel</h3>
 
-        {/* First Name input */}
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="fname"
-            placeholder="First Name"
-            onChange={handleChange}
-            required
-          />
-          <label>First Name</label>
-        </div>
+            <button
+              className="btn btn-success w-100 mb-3"
+              onClick={openTrainerForm}
+            >
+              ➕ Register Trainer
+            </button>
 
-        {/* Last Name input */}
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="lname"
-            placeholder="Last Name"
-            onChange={handleChange}
-            required
-          />
-          <label>Last Name</label>
-        </div>
+            <button
+              className="btn btn-primary w-100"
+              onClick={openMemberForm}
+            >
+              ➕ Register Member
+            </button>
+          </>
+        )}
 
-        {/* Username input */}
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="uname"
-            placeholder="Username"
-            onChange={handleChange}
-            required
-          />
-          <label>Username</label>
-        </div>
+        {/* FORM */}
+        {userType && (
+          <form onSubmit={handleSubmit}>
+            <h3 className="text-center mb-4">
+              {userType === "trainer"
+                ? "Trainer Registration"
+                : "Member Registration"}
+            </h3>
 
-        {/* Password input */}
-        <div className="form-floating mb-3">
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-        </div>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                name="fname"
+                placeholder="First Name"
+                value={user.fname}
+                onChange={handleChange}
+                required
+              />
+              <label>First Name</label>
+            </div>
 
-        {/* Email input */}
-        <div className="form-floating mb-3">
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-          />
-          <label>Email</label>
-        </div>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                name="lname"
+                placeholder="Last Name"
+                value={user.lname}
+                onChange={handleChange}
+                required
+              />
+              <label>Last Name</label>
+            </div>
 
-        {/* Contact number input */}
-        <div className="form-floating mb-3">
-          <input
-            type="tel"
-            className="form-control"
-            name="contact"
-            placeholder="Contact"
-            onChange={handleChange}
-            required
-          />
-          <label>Contact</label>
-        </div>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                name="uname"
+                placeholder="Username"
+                value={user.uname}
+                onChange={handleChange}
+                required
+              />
+              <label>Username</label>
+            </div>
 
-        {/* Gender dropdown */}
-        <div className="mb-3">
-          <label className="form-label fw-semibold">Gender</label>
-          <select
-            className="form-select"
-            name="gender"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
+            <div className="form-floating mb-3">
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                placeholder="Password"
+                value={user.password}
+                onChange={handleChange}
+                required
+              />
+              <label>Password</label>
+            </div>
 
-        {/* Role dropdown */}
-        <div className="mb-4">
-          <label className="form-label fw-semibold">Role</label>
-          <select
-            className="form-select"
-            name="roleid"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Role</option>
-            <option value="1">Admin</option>
-            <option value="2">Trainer</option>
-            <option value="3">Member</option>
-          </select>
-        </div>
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                placeholder="Email"
+                value={user.email}
+                onChange={handleChange}
+                required
+              />
+              <label>Email</label>
+            </div>
 
-        {/* Submit button */}
-        <button className="btn btn-primary w-100" type="submit">
-          Register
-        </button>
-      </form>
+            <div className="form-floating mb-3">
+              <input
+                type="tel"
+                className="form-control"
+                name="contact"
+                placeholder="Contact"
+                value={user.contact}
+                onChange={handleChange}
+                required
+              />
+              <label>Contact</label>
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label fw-semibold">Gender</label>
+              <select
+                className="form-select"
+                name="gender"
+                value={user.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            {/* ROLE SHOWN BUT DISABLED */}
+            <div className="mb-3">
+              <label className="form-label fw-semibold">Role</label>
+              <input
+                type="text"
+                className="form-control"
+                value={userType === "trainer" ? "Trainer" : "Member"}
+                disabled
+              />
+            </div>
+
+            <button className="btn btn-primary w-100 mb-2" type="submit">
+              Register
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-secondary w-100"
+              onClick={() => setUserType(null)}
+            >
+              Back
+            </button>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
+
 
 export default Register;
