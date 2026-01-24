@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Role;
@@ -21,6 +23,8 @@ public class UserService {
 	 @Autowired
 	 RoleRepository rolerepo;
 	 
+	 @Autowired
+	 BCryptPasswordEncoder passwordEncoder;
 
 	 //Registration
 	 public User registerUser(UserRegistrationDTO dto) {
@@ -39,7 +43,8 @@ public class UserService {
 	    	    
 	    User user = new User();
 	    user.setUname(dto.getUname());
-	    user.setPassword(dto.getPassword()); // later encrypt
+	    
+	    user.setPassword(passwordEncoder.encode(dto.getPassword())); // later encrypt
 	    user.setFname(dto.getFname());
 	    user.setLname(dto.getLname());
 	    user.setEmail(dto.getEmail());
