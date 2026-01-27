@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.member.demo.dto.MemberDTO;
+import com.member.demo.dto.MemberUpdateDTO;
 import com.member.demo.entities.Member;
 import com.member.demo.service.MemberService;
 
@@ -20,45 +22,39 @@ import com.member.demo.service.MemberService;
 @RequestMapping("/flexify/members")
 public class MemberController {
 	
+
 	    @Autowired
-	    private MemberService memberService;
+	    private MemberService service;
 
-	    // CREATE
-	    @PostMapping
-	    public ResponseEntity<Member> createMember(
-	            @RequestBody Member member) {
-	        return ResponseEntity.ok(memberService.createMember(member));
+	    @PostMapping("/add")
+	    public ResponseEntity<Member> create(@RequestBody MemberDTO dto) {
+	        return ResponseEntity.ok(service.addMember(dto));
 	    }
 
-	    // READ by ID
-	    @GetMapping("/{id}")
-	    public ResponseEntity<Member> getMemberById(
-	            @PathVariable int id) {
-	        return ResponseEntity.ok(memberService.getMemberById(id));
+	    @GetMapping("getOne/{id}")
+	    public ResponseEntity<Member> get(@PathVariable int id) {
+	        return ResponseEntity.ok(service.getMember(id));
 	    }
 
-	    // READ ALL
-	    @GetMapping
-	    public ResponseEntity<List<Member>> getAllMembers() {
-	        return ResponseEntity.ok(memberService.getAllMembers());
+	    @GetMapping("/all")
+	    public ResponseEntity<List<Member>> getAll() {
+	        return ResponseEntity.ok(service.getAllMembers());
 	    }
 
-	    // UPDATE
-	    @PutMapping("/{id}")
-	    public ResponseEntity<Member> updateMember(
+	    @PutMapping("/update/{id}")
+	    public ResponseEntity<Member> update(
 	            @PathVariable int id,
-	            @RequestBody Member member) {
-	        return ResponseEntity.ok(
-	                memberService.updateMember(id, member));
+	            @RequestBody MemberUpdateDTO dto) {
+	        return ResponseEntity.ok(service.updateMember(id, dto));
 	    }
 
-	    // DELETE
-	    @DeleteMapping("/{id}")
-	    public ResponseEntity<String> deleteMember(
-	            @PathVariable int id) {
-	        memberService.deleteMember(id);
+	    @DeleteMapping("delete/{id}")
+	    public ResponseEntity<String> delete(@PathVariable int id) {
+	        service.deleteMember(id);
 	        return ResponseEntity.ok("Member deleted successfully");
 	    }
 	}
+
+	
 
 

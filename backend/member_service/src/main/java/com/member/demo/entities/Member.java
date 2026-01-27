@@ -1,9 +1,11 @@
 package com.member.demo.entities;
 
 import java.time.LocalDate;
+
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,8 +29,8 @@ public class Member {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    int memberId;
-	    @JsonFormat(pattern = "yyyy-MM-dd")
+	    int mid;
+	    int uid;
         LocalDate dob;
 	    int height;
 	    int weight;
@@ -36,9 +38,9 @@ public class Member {
 	    
 	    LocalDate join_Date;
 	    String status;
-	    int uid;
-
-	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	    List<MedicalInfo> medicalInfo;
+	  
+	    @JsonIgnoreProperties({"medInfos"})
+	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+	    List<MedicalInfo> medInfos;
 	  
 }
