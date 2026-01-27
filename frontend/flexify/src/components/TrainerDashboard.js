@@ -1,9 +1,7 @@
 import React from "react";
 
 function TrainerDashboard() {
-  return <div>
-    <h1>Welcome To Trainer Page</h1>
-  </div>;
+  return <div>Trainer Page</div>;
 }
 
 export default TrainerDashboard;
