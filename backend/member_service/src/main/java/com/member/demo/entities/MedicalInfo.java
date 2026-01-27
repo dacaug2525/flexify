@@ -1,5 +1,8 @@
 package com.member.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,11 +21,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
+@JsonIgnoreProperties({"member"})
 public class MedicalInfo {
-	 @Id
+	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	     int medId;
-
+	    int medId;
+	 
+	    @JsonIgnore 
 	     @ManyToOne
 	     @JoinColumn(name = "mid")
 	     Member member;
@@ -30,4 +35,6 @@ public class MedicalInfo {
 	    @ManyToOne
 	    @JoinColumn(name = "health_id")
 	     HealthCondition healthCondition;
+	    
+	    String remark;
 }
