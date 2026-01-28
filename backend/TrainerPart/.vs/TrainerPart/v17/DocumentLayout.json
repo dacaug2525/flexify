@@ -1,0 +1,272 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CDAC Project Trainer Part\\TrainerPart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\dto\u0027s\\progressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\progressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\controllers\\workoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\workoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\dto\u0027s\\workoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\workoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\dto\u0027s\\trainerprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\trainerprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\workoutschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\workoutschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\dto\u0027s\\memberattendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\memberattendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\memberattendence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\memberattendence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\memberprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\memberprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\trainerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\trainerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|d:\\cdac project trainer part\\trainerpart\\trainerpart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProgressDto.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\ProgressDto.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\ProgressDto.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\ProgressDto.cs",
+              "RelativeToolTip": "TrainerPart\\DTO\u0027s\\ProgressDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T10:18:02.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProgressController.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\ProgressController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\ProgressController.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\ProgressController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\ProgressController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwEkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T05:18:55.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WorkoutController.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\WorkoutController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\WorkoutController.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\WorkoutController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\WorkoutController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T06:47:53.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwB4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T10:50:39.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TrainerProfileDto.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
+              "RelativeToolTip": "TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T08:56:57.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AttendanceController.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\AttendanceController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\AttendanceController.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Controllers\\AttendanceController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\AttendanceController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA9wC0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T08:32:05.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Member.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\Member.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\Member.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\Member.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\Member.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T10:20:30.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Trainer.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\Trainer.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\Trainer.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\Trainer.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\Trainer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T05:34:11.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WorkoutSchedule.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\WorkoutSchedule.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\WorkoutSchedule.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\WorkoutSchedule.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\WorkoutSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T05:18:44.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorkoutDto.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
+              "RelativeToolTip": "TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T08:26:55.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MemberAttendanceDto.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "RelativeToolTip": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T08:57:11.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MemberProgress.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\MemberProgress.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberProgress.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\MemberProgress.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\MemberProgress.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T10:21:22.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MemberAttendence.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\MemberAttendence.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberAttendence.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\MemberAttendence.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\MemberAttendence.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T08:55:35.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TrainerDbContext.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainerDbContext.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\TrainerDbContext.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAmwFsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T09:11:41.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\User.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\User.cs",
+              "ToolTip": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\Models\\User.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T10:19:18.939Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
