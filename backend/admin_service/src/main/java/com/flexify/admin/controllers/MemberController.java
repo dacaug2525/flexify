@@ -23,29 +23,29 @@ public class MemberController {
 	@Autowired
     private MemberService memberService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<?> addMember(@RequestBody MemberDTO dto) {
         return ResponseEntity.ok(memberService.addMember(dto));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<Member> getMember(@PathVariable Integer id) {
         return ResponseEntity.ok(memberService.getMemberById(id));
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<Member>> getAllMembers() {
         return ResponseEntity.ok(memberService.getAllMembers());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Member> updateMember(
             @PathVariable Integer id,
             @RequestBody MemberDTO dto) {
         return ResponseEntity.ok(memberService.updateMember(id, dto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteMember(@PathVariable Integer id) {
         memberService.deleteMember(id);
         return ResponseEntity.ok("Member deleted successfully");

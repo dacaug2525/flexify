@@ -23,29 +23,29 @@ public class TrainerController {
 	    @Autowired
 	    private TrainerService trainerService;
 
-	    @PostMapping
+	    @PostMapping("/add")
 	    public ResponseEntity<Trainer> addTrainer(@RequestBody TrainerDTO dto) {
 	        return ResponseEntity.ok(trainerService.addTrainer(dto));
 	    }
 
-	    @GetMapping("/{id}")
+	    @GetMapping("/getById/{id}")
 	    public ResponseEntity<Trainer> getTrainer(@PathVariable Integer id) {
 	        return ResponseEntity.ok(trainerService.getTrainerById(id));
 	    }
 
-	    @GetMapping
+	    @GetMapping("/getAll")
 	    public ResponseEntity<List<Trainer>> getAllTrainers() {
 	        return ResponseEntity.ok(trainerService.getAllTrainers());
 	    }
 
-	    @PutMapping("/{id}")
+	    @PutMapping("/update/{id}")
 	    public ResponseEntity<Trainer> updateTrainer(
 	            @PathVariable Integer id,
 	            @RequestBody TrainerDTO dto) {
 	        return ResponseEntity.ok(trainerService.updateTrainer(id, dto));
 	    }
 
-	    @DeleteMapping("/{id}")
+	    @DeleteMapping("/delete/{id}")
 	    public ResponseEntity<String> deleteTrainer(@PathVariable Integer id) {
 	        trainerService.deleteTrainer(id);
 	        return ResponseEntity.ok("Trainer deleted successfully");
