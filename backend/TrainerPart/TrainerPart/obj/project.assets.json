@@ -2595,11 +2595,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
+      "projectUniqueName": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\FlexifyProject\\flexify\\backend\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
       "projectName": "TrainerPart",
-      "projectPath": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
+      "projectPath": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\FlexifyProject\\flexify\\backend\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
       "packagesPath": "C:\\Users\\bhumika mahale\\.nuget\\packages\\",
-      "outputPath": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\obj\\",
+      "outputPath": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\FlexifyProject\\flexify\\backend\\TrainerPart\\TrainerPart\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

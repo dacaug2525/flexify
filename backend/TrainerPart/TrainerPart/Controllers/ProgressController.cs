@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TrainerPart.DTO_s;
 using TrainerPart.Models;
 
 namespace TrainerPart.Controllers
 {
+    [EnableCors]
     [ApiController]
     [Route("api/progress")]
     public class ProgressController : ControllerBase

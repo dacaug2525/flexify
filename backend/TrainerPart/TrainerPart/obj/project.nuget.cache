@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FQinPSaimus=",
+  "dgSpecHash": "Grh2ubvLmzk=",
   "success": true,
-  "projectFilePath": "D:\\CDAC Project Trainer Part\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
+  "projectFilePath": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\FlexifyProject\\flexify\\backend\\TrainerPart\\TrainerPart\\TrainerPart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bhumika mahale\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\bhumika mahale\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
