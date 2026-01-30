@@ -1,29 +1,52 @@
-import logo from "./logo.svg";
-
-import Navbar from "./components/Navbar";
-import Login from "./components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import AdminDashboard from "./components/AdminDashboard";
-import Register from "./components/Register";
-import MemberDashboard from "./components/MemberDashboard";
-import TrainerDashboard from "./components/TrainerDashboard";
+
+import Navbar from "./components/common/Navbar";
+import Home from "./components/common/Home";
+import Login from "./components/common/Login";
+import Register from "./components/common/Register";
+
+import MemberDashboard from "./components/member/MemberDashboard";
+import TrainerDashboard from "./components/trainer/TrainerDashboard";
+
+import AdminLayout from "./components/admin/AdminLayout";
+import Dashboard from "./components/admin/Dashboard";
+import Members from "./components/admin/Members";
+import Trainers from "./components/admin/Trainers";
+import Plans from "./components/admin/Plans";
+import Payments from "./components/admin/Payments";
+import Feedback from "./components/admin/Feedback";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Navbar />
+    <BrowserRouter>
+      {/* ✅ NAVBAR ALWAYS VISIBLE */}
+       <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/admin-dashboard" element={<AdminDashboard />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
-          <Route path="/member-dashboard" element={<MemberDashboard />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+
+        {/* ---------- PUBLIC ---------- */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* ---------- ADMIN ROUTES ---------- */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="members" element={<Members />} />
+          <Route path="trainers" element={<Trainers />} />
+          <Route path="plans" element={<Plans />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="feedback" element={<Feedback />} />
+        </Route>
+
+        {/* ---------- TRAINER ---------- */}
+        <Route path="/trainer/trainer-dashboard" element={<TrainerDashboard />} />
+
+        {/* ---------- MEMBER ---------- */}
+        <Route path="/member/member-dashboard" element={<MemberDashboard />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
