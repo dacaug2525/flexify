@@ -71,5 +71,4 @@ public class Trainer {
 		this.uid = uid;
 	}
 
-    
 }
