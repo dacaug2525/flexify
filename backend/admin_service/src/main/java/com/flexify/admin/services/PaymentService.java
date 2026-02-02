@@ -17,37 +17,9 @@ public class PaymentService {
         this.repository = repository;
     }
 
-    // CREATE
-    public Payment addPayment(Payment p) {
-        return repository.save(p);
-    }
-
-    // READ ALL
+    // Fetch all payments
     public List<Payment> getAllPayments() {
         return repository.findAll();
     }
 
-    // READ BY ID
-    public Payment getPaymentById(Integer id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Payment not found"));
-    }
-
-    // UPDATE
-    public Payment updatePayment(Integer id, Payment p) {
-        Payment existing = getPaymentById(id);
-
-        existing.setMid(p.getMid());
-        existing.setAmount(p.getAmount());
-        existing.setPaymentDate(p.getPaymentDate());
-        existing.setPaymentMethod(p.getPaymentMethod());
-        existing.setTransactionId(p.getTransactionId());
-
-        return repository.save(existing);
-    }
-
-    // DELETE
-    public void deletePayment(Integer id) {
-        repository.deleteById(id);
-    }
 }

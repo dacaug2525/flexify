@@ -17,37 +17,7 @@ public class FeedbackService {
 	        this.repository = repository;
 	    }
 
-	    // CREATE
-	    public Feedback addFeedback(Feedback f) {
-	        return repository.save(f);
-	    }
-
-	    // READ ALL
-	    public List<Feedback> getAllFeedbacks() {
+	    public List<Feedback> getAllFeedback() {
 	        return repository.findAll();
-	    }
-
-	    // READ BY ID
-	    public Feedback getFeedbackById(Integer id) {
-	        return repository.findById(id)
-	                .orElseThrow(() -> new RuntimeException("Feedback not found"));
-	    }
-
-	    // UPDATE
-	    public Feedback updateFeedback(Integer id, Feedback f) {
-	        Feedback existing = getFeedbackById(id);
-
-	        existing.setMid(f.getMid());
-	        existing.setTid(f.getTid());
-	        existing.setComment(f.getComment());
-	        existing.setDate(f.getDate());
-	        existing.setRating(f.getRating());
-
-	        return repository.save(existing);
-	    }
-
-	    // DELETE
-	    public void deleteFeedback(Integer id) {
-	        repository.deleteById(id);
 	    }
 }

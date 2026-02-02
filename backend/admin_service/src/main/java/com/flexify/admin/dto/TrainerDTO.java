@@ -6,6 +6,7 @@ public class TrainerDTO {
 	private Integer experience;
     private BigDecimal salary;
     private Integer uid;
+    
 	public Integer getExperience() {
 		return experience;
 	}
@@ -24,6 +25,5 @@ public class TrainerDTO {
 	public void setUid(Integer uid) {
 		this.uid = uid;
 	}
-    
-    
+
 }
