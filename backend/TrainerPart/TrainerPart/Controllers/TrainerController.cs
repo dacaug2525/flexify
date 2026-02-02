@@ -78,19 +78,27 @@ namespace TrainerPart.Controllers
         [HttpGet("members/{tid}")]
         public IActionResult GetAssignedMembers(int tid)
         {
-            var members = from a in _context.MemberTrainerAssignments
-                          join m in _context.Members on a.Mid equals m.Mid
-                          where a.Tid == tid
-                          select new
-                          {
-                              m.Mid,
-                              m.Weight,
-                              m.Height,
-                              m.Status
-                          };
+            var members =
+                from a in _context.MemberTrainerAssignments
+                join m in _context.Members on a.Mid equals m.Mid
+                join u in _context.Users on m.Uid equals u.Uid
+                where a.Tid == tid
+                select new AssignedMemberDto
+                {
+                    Mid = m.Mid,
+                    Fname = u.Fname,
+                    Lname = u.Lname,
+                    Uname = u.Uname,
+                    Email = u.Email,
+                    Contact = u.Contact,
+                    Height = m.Height,
+                    Weight = m.Weight,
+                    Status = m.Status
+                };
 
             return Ok(members.ToList());
         }
+
 
     }
 

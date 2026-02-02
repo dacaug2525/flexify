@@ -13,7 +13,7 @@ public partial class WorkoutSchedule
 
     public string? WorkoutDesc { get; set; }
 
-    public int Days { get; set; }
+    public int? Days { get; set; }
 
     public virtual Member Member { get; set; } = null!;
 

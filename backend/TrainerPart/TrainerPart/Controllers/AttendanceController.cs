@@ -16,20 +16,24 @@ namespace TrainerPart.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult GetAttendance()
+        [HttpGet("trainer/{trainerId}")]
+        public IActionResult GetAttendanceByTrainer(int trainerId)
         {
-            var attendance = from a in _context.MemberAttendences
-                             join m in _context.Members on a.Mid equals m.Mid
-                             join u in _context.Users on m.Uid equals u.Uid
-                             select new MemberAttendanceDto
-                             {
-                                 AttendanceId = a.AttendenceId,
-                                 Mid = m.Mid,
-                                 MemberName = u.Fname + " " + u.Lname,
-                                 Date = a.Date,
-                                 Status = a.Status
-                             };
+            var attendance =
+                from a in _context.MemberAttendences
+                join m in _context.Members on a.Mid equals m.Mid
+                join u in _context.Users on m.Uid equals u.Uid
+                join mt in _context.MemberTrainerAssignments on m.Mid equals mt.Mid
+                where mt.Tid == trainerId
+                select new MemberAttendanceDto
+                {
+                    AttendanceId = a.AttendenceId,
+                    Mid = m.Mid,
+                    MemberName = u.Fname + " " + u.Lname,
+                    Email = u.Email,
+                    Date = a.Date,
+                    Status = a.Status
+                };
 
             return Ok(attendance.ToList());
         }

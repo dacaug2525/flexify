@@ -5,10 +5,21 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/attendance": {
+    "/api/attendance/trainer/{trainerId}": {
       "get": {
         "tags": [
           "Attendance"
+        ],
+        "parameters": [
+          {
+            "name": "trainerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -40,26 +51,19 @@
         }
       }
     },
-    "/api/progress/{mid}": {
+    "/api/progress/trainer/{tid}/members": {
       "get": {
         "tags": [
           "Progress"
         ],
         "parameters": [
           {
-            "name": "memberId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "mid",
+            "name": "tid",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -70,10 +74,42 @@
         }
       }
     },
-    "/api/progress/addProgress": {
+    "/api/progress/trainer/{tid}": {
+      "get": {
+        "tags": [
+          "Progress"
+        ],
+        "parameters": [
+          {
+            "name": "tid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Progress"
+        ],
+        "parameters": [
+          {
+            "name": "tid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -101,12 +137,53 @@
         }
       }
     },
-    "/api/progress/{progressId}": {
+    "/api/progress/trainer/{tid}/member/{mid}": {
+      "get": {
+        "tags": [
+          "Progress"
+        ],
+        "parameters": [
+          {
+            "name": "tid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "mid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/progress/trainer/{tid}/{progressId}": {
       "put": {
         "tags": [
           "Progress"
         ],
         "parameters": [
+          {
+            "name": "tid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "progressId",
             "in": "path",
@@ -189,45 +266,14 @@
         }
       }
     },
-    "/api/workout/workoutAdd": {
-      "post": {
-        "tags": [
-          "Workout"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/workout/member/{memberId}": {
+    "/api/trainer/workouts/{trainerId}": {
       "get": {
         "tags": [
-          "Workout"
+          "WorkoutSchedule"
         ],
         "parameters": [
           {
-            "name": "memberId",
+            "name": "trainerId",
             "in": "path",
             "required": true,
             "schema": {
@@ -243,10 +289,64 @@
         }
       }
     },
-    "/api/workout/{workoutId}": {
+    "/api/trainer/workouts/trainer/{trainerId}/members": {
+      "get": {
+        "tags": [
+          "WorkoutSchedule"
+        ],
+        "parameters": [
+          {
+            "name": "trainerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/trainer/workouts": {
+      "post": {
+        "tags": [
+          "WorkoutSchedule"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/trainer/workouts/{workoutId}": {
       "put": {
         "tags": [
-          "Workout"
+          "WorkoutSchedule"
         ],
         "parameters": [
           {
@@ -263,42 +363,21 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/WorkoutDto"
+                "$ref": "#/components/schemas/AddUpdateWorkoutDto"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Workout"
-        ],
-        "parameters": [
-          {
-            "name": "workoutId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -309,43 +388,9 @@
   },
   "components": {
     "schemas": {
-      "ProgressDto": {
+      "AddUpdateWorkoutDto": {
         "type": "object",
         "properties": {
-          "progressId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "mid": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "weight": {
-            "type": "number",
-            "format": "double"
-          },
-          "recordedDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "remark": {
-            "type": "string",
-            "nullable": true
-          },
-          "bmi": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WorkoutDto": {
-        "type": "object",
-        "properties": {
-          "workoutId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "trainerId": {
             "type": "integer",
             "format": "int32"
@@ -360,7 +405,42 @@
           },
           "days": {
             "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressDto": {
+        "type": "object",
+        "properties": {
+          "progressId": {
+            "type": "integer",
             "format": "int32"
+          },
+          "mid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "memberName": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "bmi": {
+            "type": "number",
+            "format": "double"
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          },
+          "recordedDate": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

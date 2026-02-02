@@ -1,11 +1,15 @@
+import TrainerProfile from "./TrainerProfile";
+import AssignedMembers from "./AssignedMembers";
+import MemberAttendance from "./MembersAttendance";
+import MemberProgress from "./MemberProgress";
+import WorkoutToMember from "./WorkoutToMember";
 import React, { useState } from "react";
 import {
   FaHome,
   FaUser,
   FaUsers,
   FaDumbbell,
-  FaCalendarAlt,
-  FaSignOutAlt
+  FaCalendarAlt
 } from "react-icons/fa";
 
 const TrainerDashboard = () => {
@@ -15,8 +19,10 @@ const TrainerDashboard = () => {
     { name: "Dashboard", icon: <FaHome /> },
     { name: "My Profile", icon: <FaUser /> },
     { name: "Assigned Members", icon: <FaUsers /> },
+    { name: "Members Attendance", icon: <FaCalendarAlt /> },
+    { name: "Members Progress", icon: <FaCalendarAlt /> },
     { name: "Workout Plans", icon: <FaDumbbell /> },
-    { name: "Schedule", icon: <FaCalendarAlt /> },
+   
   ];
 
   return (
@@ -79,14 +85,16 @@ const TrainerDashboard = () => {
             </div>
           )}
 
-          {active !== "Dashboard" && (
-            <div className="card shadow">
-              <div className="card-body">
-                <h5>{active}</h5>
-                <p>Feature UI will be added here.</p>
-              </div>
-            </div>
-          )}
+          {active === "My Profile" && <TrainerProfile />}
+
+          {active === "Assigned Members" && <AssignedMembers/>}
+
+          {active === "Members Attendance" && <MemberAttendance/>}
+
+          {active === "Members Progress" && <MemberProgress/>}
+
+          {active === "Workout Plans" && <WorkoutToMember/>}
+
         </div>
 
       </div>

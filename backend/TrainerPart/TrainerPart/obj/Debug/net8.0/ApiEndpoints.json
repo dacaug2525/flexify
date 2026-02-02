@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "TrainerPart.Controllers.AttendanceController",
-    "Method": "GetAttendance",
-    "RelativePath": "api/attendance",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TrainerPart.Controllers.AttendanceController",
     "Method": "GetAttendanceByMember",
     "RelativePath": "api/attendance/member/{mid}",
     "HttpMethod": "GET",
@@ -26,34 +16,71 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TrainerPart.Controllers.ProgressController",
-    "Method": "GetProgress",
-    "RelativePath": "api/progress/{mid}",
+    "ContainingType": "TrainerPart.Controllers.AttendanceController",
+    "Method": "GetAttendanceByTrainer",
+    "RelativePath": "api/attendance/trainer/{trainerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "memberId",
+        "Name": "trainerId",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "mid",
-        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TrainerPart.Controllers.ProgressController",
+    "ContainingType": "ProgressController",
+    "Method": "GetTrainerProgress",
+    "RelativePath": "api/progress/trainer/{tid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProgressController",
+    "Method": "AddProgress",
+    "RelativePath": "api/progress/trainer/{tid}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TrainerPart.DTO_s.ProgressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProgressController",
     "Method": "UpdateProgress",
-    "RelativePath": "api/progress/{progressId}",
+    "RelativePath": "api/progress/trainer/{tid}/{progressId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "tid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "progressId",
         "Type": "System.Int32",
@@ -68,16 +95,37 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TrainerPart.Controllers.ProgressController",
-    "Method": "AddProgress",
-    "RelativePath": "api/progress/addProgress",
-    "HttpMethod": "POST",
+    "ContainingType": "ProgressController",
+    "Method": "GetMemberProgress",
+    "RelativePath": "api/progress/trainer/{tid}/member/{mid}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "TrainerPart.DTO_s.ProgressDto",
+        "Name": "tid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProgressController",
+    "Method": "GetTrainerMembers",
+    "RelativePath": "api/progress/trainer/{tid}/members",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -116,9 +164,41 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TrainerPart.Controllers.WorkoutController",
+    "ContainingType": "WorkoutScheduleController",
+    "Method": "AddWorkout",
+    "RelativePath": "api/trainer/workouts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TrainerPart.DTO_s.AddUpdateWorkoutDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WorkoutScheduleController",
+    "Method": "GetTrainerWorkouts",
+    "RelativePath": "api/trainer/workouts/{trainerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trainerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WorkoutScheduleController",
     "Method": "UpdateWorkout",
-    "RelativePath": "api/workout/{workoutId}",
+    "RelativePath": "api/trainer/workouts/{workoutId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -130,55 +210,23 @@
       },
       {
         "Name": "dto",
-        "Type": "TrainerPart.DTO_s.WorkoutDto",
+        "Type": "TrainerPart.DTO_s.AddUpdateWorkoutDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TrainerPart.Controllers.WorkoutController",
-    "Method": "DeleteWorkout",
-    "RelativePath": "api/workout/{workoutId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "workoutId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TrainerPart.Controllers.WorkoutController",
-    "Method": "GetWorkout",
-    "RelativePath": "api/workout/member/{memberId}",
+    "ContainingType": "WorkoutScheduleController",
+    "Method": "GetMembersUnderTrainer",
+    "RelativePath": "api/trainer/workouts/trainer/{trainerId}/members",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "memberId",
+        "Name": "trainerId",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TrainerPart.Controllers.WorkoutController",
-    "Method": "AddWorkout",
-    "RelativePath": "api/workout/workoutAdd",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "TrainerPart.DTO_s.WorkoutDto",
         "IsRequired": true
       }
     ],
