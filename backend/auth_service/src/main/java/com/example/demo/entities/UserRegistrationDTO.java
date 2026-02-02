@@ -8,7 +8,7 @@ public class UserRegistrationDTO {
     private String email;
     private String contact;
     private String gender;
-    private int roleid;
+    private Integer roleid;
     
     
 	public UserRegistrationDTO() {
@@ -74,10 +74,10 @@ public class UserRegistrationDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getRoleid() {
+	public Integer getRoleid() {
 		return roleid;
 	}
-	public void setRoleid(int roleid) {
+	public void setRoleid(Integer roleid) {
 		this.roleid = roleid;
 	}
 	

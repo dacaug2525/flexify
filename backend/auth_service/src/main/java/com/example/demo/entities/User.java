@@ -19,7 +19,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int uid;
+	Integer uid;
 	
 	String uname;
 	

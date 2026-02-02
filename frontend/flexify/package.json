@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
+    "framer-motion": "^12.29.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icon": "^1.0.0",
@@ -17,6 +18,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.13.0",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.26.17",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
