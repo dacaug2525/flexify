@@ -1,5 +1,7 @@
 package com.flexify.member.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,11 +27,14 @@ public class PlanTraining {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "pt_id")
+	    @Column(name = "ptid")
 	    private Integer ptId;
 
+	    
+	    
 	    @ManyToOne
-	    @JoinColumn(name = "plan_id", nullable = false)
+	    @JoinColumn(name = "plan_id")
+	    @JsonIgnoreProperties("planTrainings")
 	    private Plan plan;
 
 	    @ManyToOne

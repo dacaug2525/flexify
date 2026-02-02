@@ -8,82 +8,102 @@ import com.flexify.member.entities.*;
 import com.flexify.member.repository.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
 public class PaymentService {
-
 	@Autowired
-	private PaymentRepository paymentRepo;
+    private PaymentRepository paymentRepo;
 
-	@Autowired
-	private MemberMembershipRepository membershipRepo;
+    @Autowired
+    private MemberMembershipRepository membershipRepo;
 
-	@Autowired
-	private PlanRepository planRepo;
+    @Autowired
+    private PlanRepository planRepo;
 
-	/**
-	 * Generate unique 10-character transaction ID
-	 */
-	private String generateTransactionId() {
-		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		StringBuilder sb = new StringBuilder(10);
-		Random random = new Random();
+    /* ================= TRANSACTION ID ================= */
+    private String generateTransactionId() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder sb = new StringBuilder(10);
+        Random random = new Random();
 
-		for (int i = 0; i < 10; i++) {
-			sb.append(chars.charAt(random.nextInt(chars.length())));
-		}
-		return sb.toString();
-	}
+        for (int i = 0; i < 10; i++) {
+            sb.append(chars.charAt(random.nextInt(chars.length())));
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * Make payment → Purchase or Renew Membership
-	 */
-	public PaymentResponseDTO makePayment(PaymentRequestDTO dto) {
+    /* ================= PAYMENT ================= */
+    public PaymentResponseDTO makePayment(PaymentRequestDTO dto) {
 
-		// 1️⃣ Save payment
-		Payment payment = new Payment();
-		payment.setMid(dto.getMemberId());
-		payment.setAmount(dto.getAmount());
-		payment.setPaymentDate(dto.getPaymentDate());
-		payment.setPaymentMethod(dto.getPaymentMethod());
-		payment.setTransactionId(generateTransactionId());
+        /* 1️⃣ SAVE PAYMENT */
+        Payment payment = new Payment();
+        payment.setMid(dto.getMemberId());
+        payment.setAmount(dto.getAmount());
+        payment.setPaymentDate(dto.getPaymentDate());
+        payment.setPaymentMethod(dto.getPaymentMethod());
+        payment.setTransactionId(generateTransactionId());
+        paymentRepo.save(payment);
 
-		paymentRepo.save(payment);
+        /* 2️⃣ FETCH PLAN */
+        Plan plan = planRepo.findById(dto.getPlanId())
+                .orElseThrow(() -> new RuntimeException("Plan not found"));
 
-		// 2️⃣ Fetch plan
-		Plan plan = planRepo.findById(dto.getPlanId()).orElseThrow(() -> new RuntimeException("Plan not found"));
+        /* 3️⃣ FETCH ACTIVE MEMBERSHIP (FAST & SAFE) */
+        MemberMembership membership =
+                membershipRepo.findByMemberIdAndStatus(
+                        dto.getMemberId(),
+                        MemberMembership.Status.ACTIVE
+                ).orElse(null);
 
-		// 3️⃣ Check existing active membership
-		MemberMembership membership = membershipRepo.findActiveMembership(dto.getMemberId(), dto.getPlanId())
-				.orElse(null);
+        if (membership != null) {
 
-		if (membership != null) {
-			// 🔄 RENEW MEMBERSHIP
-			membership.setEndDate(membership.getEndDate().plusMonths(plan.getPlanDuration()));
-		} else {
-			// 🆕 NEW MEMBERSHIP
-			membership = new MemberMembership();
-			membership.setMemberId(dto.getMemberId());
-			membership.setPlan(plan);
-			membership.setStartDate(LocalDate.now());
-			membership.setEndDate(LocalDate.now().plusMonths(plan.getPlanDuration()));
-			membership.setStatus(MemberMembership.Status.ACTIVE);
-		}
+            /* 🔄 SAME PLAN → RENEW */
+            if (membership.getPlan().getPlanId().equals(plan.getPlanId())) {
+                membership.setEndDate(
+                        membership.getEndDate().plusMonths(plan.getPlanDuration())
+                );
+            }
+            /* 🔁 DIFFERENT PLAN → SWITCH */
+            else {
+                membership.setStatus(MemberMembership.Status.INACTIVE);
 
-		membershipRepo.save(membership);
+                membership = new MemberMembership();
+                membership.setMemberId(dto.getMemberId());
+                membership.setPlan(plan);
+                membership.setStartDate(LocalDate.now());
+                membership.setEndDate(
+                        LocalDate.now().plusMonths(plan.getPlanDuration())
+                );
+                membership.setStatus(MemberMembership.Status.ACTIVE);
+            }
+        }
+        /* 🆕 NO MEMBERSHIP */
+        else {
+            membership = new MemberMembership();
+            membership.setMemberId(dto.getMemberId());
+            membership.setPlan(plan);
+            membership.setStartDate(LocalDate.now());
+            membership.setEndDate(
+                    LocalDate.now().plusMonths(plan.getPlanDuration())
+            );
+            membership.setStatus(MemberMembership.Status.ACTIVE);
+        }
 
-		// 4️⃣ Prepare response
-		PaymentResponseDTO response = new PaymentResponseDTO();
-		response.setPaymentId(payment.getPaymentId());
-		response.setMemberId(payment.getMid());
-		response.setAmount(payment.getAmount());
-		response.setPaymentDate(payment.getPaymentDate());
-		response.setPaymentMethod(payment.getPaymentMethod());
-		response.setTransactionId(payment.getTransactionId());
-		response.setMembershipStatus(membership.getStatus().name());
-		response.setPlanName(plan.getPlanName());
+        membershipRepo.save(membership);
 
-		return response;
-	}
+        /* 4️⃣ RESPONSE */
+        PaymentResponseDTO response = new PaymentResponseDTO();
+        response.setPaymentId(payment.getPaymentId());
+        response.setMemberId(payment.getMid());
+        response.setAmount(payment.getAmount());
+        response.setPaymentDate(payment.getPaymentDate());
+        response.setPaymentMethod(payment.getPaymentMethod());
+        response.setTransactionId(payment.getTransactionId());
+        response.setMembershipStatus(membership.getStatus().name());
+        response.setPlanName(plan.getPlanName());
+
+        return response;
+    }
 }

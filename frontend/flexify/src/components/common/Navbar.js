@@ -1,71 +1,93 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const isLoginPage = location.pathname === "/login";
 
   const handleLogout = () => {
+    dispatch(logout());
     localStorage.removeItem("user");
     navigate("/login");
   };
 
   return (
     <nav
-      className="navbar navbar-expand-lg bg-light border-bottom px-4"
-      style={{ minHeight: "65px" }}   // 🔹 height increased
+      style={{
+        height: "70px",
+        background: "linear-gradient(90deg, #020b1f, #04152f)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        display: "grid",
+        gridTemplateColumns: "auto 1fr auto",
+        alignItems: "center",
+        padding: "0 40px",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+      }}
     >
-      {/* LEFT : Brand */}
-      <span
-        className="navbar-brand fw-bold text-dark"
-        style={{
-          fontSize: "1.6rem",        // 🔹 bigger brand text
-          letterSpacing: "1px",      // 🔹 clean premium look
-          cursor: "pointer",
-        }}
+      {/* ===== BRAND ===== */}
+      <div
         onClick={() => navigate("/")}
+        style={{
+          fontSize: "1.8rem",
+          fontWeight: 900,
+          letterSpacing: "2px",
+          cursor: "pointer",
+          color: "#ffffff",
+        }}
       >
-        Flexify
-      </span>
-
-      {/* CENTER : Links */}
-      <div className="collapse navbar-collapse justify-content-center">
-        <ul className="navbar-nav gap-4">
-          <li className="nav-item">
-            <span
-              className="nav-link text-secondary"
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/")}
-            >
-              Home
-            </span>
-          </li>
-          <li className="nav-item">
-            <span className="nav-link text-secondary">Plans</span>
-          </li>
-          <li className="nav-item">
-            <span className="nav-link text-secondary">Trainers</span>
-          </li>
-          <li className="nav-item">
-            <span className="nav-link text-secondary">Contact</span>
-          </li>
-        </ul>
+        Flex
+        <span
+          style={{
+            color: "#38bdf8",
+            textShadow: "0 0 12px rgba(56,189,248,0.6)",
+          }}
+        >
+          ify
+        </span>
       </div>
 
-      {/* RIGHT : Login / Logout */}
-      <div>
-        {!user ? (
-          <button
-            className="btn btn-outline-dark btn-sm px-3"
-            onClick={() => navigate("/login")}
-          >
+      {/* ===== CENTER LINKS ===== */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "36px",
+          fontSize: "1rem",
+          fontWeight: 500,
+          color: "#cbd5e1",
+        }}
+      >
+        <span style={linkStyle} onClick={() => navigate("/")}>
+          Home
+        </span>
+
+        <span style={linkStyle} onClick={() => navigate("/plans")}>
+          Plans
+        </span>
+
+        <span style={linkStyle} onClick={() => navigate("/contact")}>
+          Contact Us
+        </span>
+      </div>
+
+      {/* ===== AUTH ACTION ===== */}
+      <div style={{ width: "120px", textAlign: "right" }}>
+        {!isAuthenticated && !isLoginPage && (
+          <button onClick={() => navigate("/login")} style={buttonStyle}>
             Login
           </button>
-        ) : (
-          <button
-            className="btn btn-outline-dark btn-sm px-3"
-            onClick={handleLogout}
-          >
+        )}
+
+        {isAuthenticated && (
+          <button onClick={handleLogout} style={buttonStyle}>
             Logout
           </button>
         )}
@@ -73,5 +95,22 @@ function Navbar() {
     </nav>
   );
 }
+
+/* ===== STYLES ===== */
+
+const linkStyle = {
+  cursor: "pointer",
+  transition: "color 0.25s ease",
+};
+
+const buttonStyle = {
+  background: "transparent",
+  border: "1px solid #38bdf8",
+  color: "#38bdf8",
+  padding: "6px 18px",
+  borderRadius: "20px",
+  fontWeight: 600,
+  cursor: "pointer",
+};
 
 export default Navbar;

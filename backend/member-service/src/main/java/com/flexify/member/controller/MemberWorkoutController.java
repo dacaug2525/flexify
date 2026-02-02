@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import com.flexify.member.service.MemberWorkoutService;
 @RestController
 @RequestMapping("/flexify/member/workout")
+@CrossOrigin(origins="http://localhost:3000")
 public class MemberWorkoutController {
-	
-
 	
 
 	    @Autowired
 	    private MemberWorkoutService workoutService;
 
-	    // ✅ Member views workout schedule
+	    //  Member views workout schedule
 	    @GetMapping("/{mid}")
 	    public ResponseEntity<?> getWorkoutByMember(
 	            @PathVariable Integer mid) {

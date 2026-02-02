@@ -5,6 +5,7 @@ import com.flexify.member.entities.*;
 import com.flexify.member.dto.*;
 import com.flexify.member.repository.*;
 import java.util.List;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 import com.flexify.member.dto.MemberMembershipResponseDTO;
@@ -119,6 +120,41 @@ public class MembershipService {
 
 	            return dto;
 	        }).toList();
+	    }
+
+	    
+	    
+	    public List<PlanViewDTO> getAllPlansWithDetails() {
+
+	        return planRepo.findAll().stream().map(plan -> {
+
+	            PlanViewDTO dto = new PlanViewDTO();
+	            dto.setPlanId(plan.getPlanId());
+	            dto.setPlanName(plan.getPlanName());
+	            dto.setPlanDuration(plan.getPlanDuration());
+	            dto.setOriginalFees(plan.getFees());
+	            dto.setDescription(plan.getDescription());
+
+	            // 🔹 Discount calculation
+	            BigDecimal discount = BigDecimal.ZERO;
+	            if (plan.getDiscount() != null) {
+	                discount = plan.getDiscount().getDiscount();
+	            }
+
+	            dto.setDiscountAmount(discount);
+	            dto.setFinalFees(plan.getFees().subtract(discount));
+
+	            // 🔹 Training list
+	            List<String> trainings = plan.getPlanTrainings()
+	                    .stream()
+	                    .map(pt -> pt.getTraining().getTrName())
+	                    .collect(Collectors.toList());
+
+	            dto.setTrainings(trainings);
+
+	            return dto;
+
+	        }).collect(Collectors.toList());
 	    }
 
 	}
