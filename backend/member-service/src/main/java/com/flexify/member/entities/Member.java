@@ -1,5 +1,6 @@
 package com.flexify.member.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class Member {
 	    private Integer mid;
 
 	    @NotNull(message = "Date of birth is required")
-	    private LocalDateTime dob;
+	    private LocalDate dob;
 
 	    @Min(value = 50, message = "Height must be at least 50 cm")
 	    @Max(value = 250, message = "Height cannot exceed 250 cm")

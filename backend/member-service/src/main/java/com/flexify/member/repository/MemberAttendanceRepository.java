@@ -1,5 +1,6 @@
 package com.flexify.member.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,5 +8,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.flexify.member.entities.MemberAttendance;
 
 public interface MemberAttendanceRepository extends JpaRepository<MemberAttendance, Integer> {
-	List<MemberAttendance> findByMid(Integer mid);
+
+    List<MemberAttendance> findByMid(Integer mid);
+
+    boolean existsByMidAndDateBetween(
+        Integer mid,
+        LocalDateTime start,
+        LocalDateTime end
+    );
+
+    long countByMidAndStatus(Integer mid, MemberAttendance.Status status);
 }

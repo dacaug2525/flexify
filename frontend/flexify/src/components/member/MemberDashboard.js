@@ -1,98 +1,218 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+
+/* ===== REDUX ===== */
+import { fetchMemberByUid } from "../redux/member/memberSlice";
+
+/* ===== COMPONENTS ===== */
+import Profile from "./Profile";
+import ProgressForm from "./ProgressForm";
+import PurchasePlan from "./PurchasePlan";
+import MakePayment from "./MakePayment";
+import WorkoutPlan from "./WorkoutPlan";
+import Attendance from "./Attendance";
+import RenewMembership from "./RenewMembership";
+import Feedback from "./Feedback";
+import BMICalculator from "./BMICalculator";
+
+/* ===== ICONS ===== */
 import {
   FaHome,
-  FaUserEdit,
+  FaUser,
+  FaChartLine,
   FaShoppingCart,
   FaCreditCard,
   FaDumbbell,
   FaCalendarCheck,
   FaRedo,
-  FaStar
+  FaStar,
 } from "react-icons/fa";
 
+/* ===== CSS ===== */
+import "../member/memberDashboard.css";
+
+/* ================= DASHBOARD HOME ================= */
+const DashboardHome = ({ setActive }) => {
+  const { user } = useSelector((state) => state.auth);
+  const { member } = useSelector((state) => state.member);
+
+  const [activeMembership, setActiveMembership] = useState(null);
+  const [latestWeight, setLatestWeight] = useState(null);
+  const [latestBmi, setLatestBmi] = useState(null);
+
+  useEffect(() => {
+    if (!member?.mid) return;
+
+    axios
+      .get(`http://localhost:8083/flexify/member/membership/${member.mid}`)
+      .then((res) =>
+        setActiveMembership(res.data.find((m) => m.status === "ACTIVE")),
+      );
+  }, [member]);
+
+  useEffect(() => {
+    if (!member?.mid) return;
+
+    axios
+      .get(`http://localhost:8083/flexify/member/progress/${member.mid}`)
+      .then((res) => {
+        if (res.data.length > 0) {
+          const last = res.data[res.data.length - 1];
+          setLatestWeight(last.weight);
+          setLatestBmi(last.bmi);
+        }
+      });
+  }, [member]);
+
+  const remainingDays = activeMembership
+    ? Math.max(
+        Math.ceil(
+          (new Date(activeMembership.endDate) - new Date()) /
+            (1000 * 60 * 60 * 24),
+        ),
+        0,
+      )
+    : 0;
+
+  return (
+    <div>
+      <h2 className="welcome-text">
+        👋 Welcome, <span>{user?.fname || "Member"}</span>
+      </h2>
+      <p className="welcome-sub">
+        Stay consistent. Train smart. Results will follow 💪
+      </p>
+
+      <div className="dashboard-grid">
+        {/* MEMBERSHIP */}
+        <div className="card-ui">
+          <h4>Membership & Plan</h4>
+          <p className="card-value">
+            {activeMembership?.plan?.planName || "No Active Plan"}
+          </p>
+          {activeMembership && (
+            <>
+              <p>Status: ACTIVE</p>
+              <p>⏳ {remainingDays} days remaining</p>
+            </>
+          )}
+        </div>
+
+        {/* ATTENDANCE */}
+        <div
+          className="card-ui clickable"
+          onClick={() => setActive("Mark Attendance")}
+        >
+          <h4>Attendance</h4>
+          <p className="card-value">Mark Today</p>
+        </div>
+
+        {/* BMI */}
+        <div
+          className="card-ui clickable"
+          onClick={() => setActive("Progress")}
+        >
+          <h4>BMI Tracker</h4>
+          {latestBmi ? (
+            <>
+              <p className="card-value">{latestBmi}</p>
+              <p>Weight: {latestWeight} kg</p>
+            </>
+          ) : (
+            <p>No BMI recorded</p>
+          )}
+        </div>
+      </div>
+
+      <div className="dashboard-bottom">
+        <BMICalculator />
+      </div>
+    </div>
+  );
+};
+
+/* ================= MEMBER DASHBOARD ================= */
 const MemberDashboard = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const { user } = useSelector((state) => state.auth);
+  const { member, loading } = useSelector((state) => state.member);
+
   const [active, setActive] = useState("Dashboard");
+
+  useEffect(() => {
+    if (user?.uid) dispatch(fetchMemberByUid(user.uid));
+  }, [user, dispatch]);
+
+  useEffect(() => {
+    if (!loading && !member) setActive("Profile");
+  }, [member, loading]);
+
+  useEffect(() => {
+    if (location.state?.open) {
+      setActive(location.state.open);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const menuItems = [
     { name: "Dashboard", icon: <FaHome /> },
-    { name: "Update Account", icon: <FaUserEdit /> },
+    { name: "Profile", icon: <FaUser /> },
+    { name: "Progress", icon: <FaChartLine /> },
     { name: "Purchase Plan", icon: <FaShoppingCart /> },
     { name: "Make Payment", icon: <FaCreditCard /> },
-    { name: "Workout Plan", icon: <FaDumbbell /> },
+    { name: "Workout Schedule", icon: <FaDumbbell /> },
     { name: "Mark Attendance", icon: <FaCalendarCheck /> },
     { name: "Renew Membership", icon: <FaRedo /> },
     { name: "Feedback & Rating", icon: <FaStar /> },
   ];
 
+  const renderComponent = () => {
+    switch (active) {
+      case "Dashboard":
+        return <DashboardHome setActive={setActive} />;
+      case "Profile":
+        return <Profile />;
+      case "Progress":
+        return <ProgressForm />;
+      case "Purchase Plan":
+        return <PurchasePlan setActive={setActive} />;
+      case "Make Payment":
+        return <MakePayment />;
+      case "Workout Schedule":
+        return <WorkoutPlan />;
+      case "Mark Attendance":
+        return <Attendance />;
+      case "Renew Membership":
+        return <RenewMembership />;
+      case "Feedback & Rating":
+        return <Feedback />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="container-fluid">
-      <div className="row min-vh-100">
+    <div className="dashboard-bg">
+      {/* SIDEBAR */}
+      <aside className="sidebar-black">
+        {menuItems.map((item) => (
+          <button
+            key={item.name}
+            className={`side-btn ${active === item.name ? "active" : ""}`}
+            onClick={() => setActive(item.name)}
+          >
+            {item.icon}
+            {item.name}
+          </button>
+        ))}
+      </aside>
 
-        {/* Sidebar */}
-        <div className="col-md-3 col-lg-2 bg-dark text-white p-3">
-          <ul className="nav nav-pills flex-column gap-2">
-            {menuItems.map((item) => (
-              <li className="nav-item" key={item.name}>
-                <button
-                  className={`nav-link text-start w-100 d-flex align-items-center gap-2 ${
-                    active === item.name ? "active" : "text-white"
-                  }`}
-                  onClick={() => setActive(item.name)}
-                >
-                  {item.icon}
-                  {item.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Main Content */}
-        <div className="col-md-9 col-lg-10 p-4 bg-light">
-          <h2 className="mb-4">{active}</h2>
-
-          {active === "Dashboard" && (
-            <div className="row g-4">
-              <div className="col-md-4">
-                <div className="card text-white bg-primary shadow">
-                  <div className="card-body">
-                    <h5 className="card-title">Active Plan</h5>
-                    <h2>Gold</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="card text-white bg-success shadow">
-                  <div className="card-body">
-                    <h5 className="card-title">Attendance</h5>
-                    <h2>18 Days</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="card text-white bg-warning shadow">
-                  <div className="card-body">
-                    <h5 className="card-title">Pending Payment</h5>
-                    <h2>₹0</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {active !== "Dashboard" && (
-            <div className="card shadow">
-              <div className="card-body">
-                <h5>{active}</h5>
-                <p>Feature UI will be added here.</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-      </div>
+      {/* CONTENT */}
+      <main className="content-area">{renderComponent()}</main>
     </div>
   );
 };

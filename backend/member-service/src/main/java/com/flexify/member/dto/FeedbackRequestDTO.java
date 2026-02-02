@@ -12,13 +12,13 @@ import lombok.Setter;
 public class FeedbackRequestDTO {
 	
 
-	    @NotNull
+	
 	    private Integer mid;
 
-	    @NotNull
+	   
 	    private Integer tid;
 
-	    @NotBlank
+	    
 	    private String comment;
 
 	    @Min(1)

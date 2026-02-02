@@ -15,18 +15,23 @@ import Trainers from "./components/admin/Trainers";
 import Plans from "./components/admin/Plans";
 import Payments from "./components/admin/Payments";
 import Feedback from "./components/admin/Feedback";
+import Footer from "./components/common/Footer";
+import PlanCatalog from "./components/common/PlanCatalog";
+import Contact from "./components/common/Contact";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* ✅ NAVBAR ALWAYS VISIBLE */}
-       <Navbar />
-        <Routes>
-
+      {/*  NAVBAR ALWAYS VISIBLE */}
+      <Navbar />
+      <Routes>
         {/* ---------- PUBLIC ---------- */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/plans" element={<PlanCatalog />} />
+        <Route path="/contact" element={<Contact />} />
 
         {/* ---------- ADMIN ROUTES ---------- */}
         <Route path="/admin" element={<AdminLayout />}>
@@ -40,12 +45,15 @@ function App() {
         </Route>
 
         {/* ---------- TRAINER ---------- */}
-        <Route path="/trainer/trainer-dashboard" element={<TrainerDashboard />} />
+        <Route
+          path="/trainer/trainer-dashboard"
+          element={<TrainerDashboard />}
+        />
 
         {/* ---------- MEMBER ---------- */}
         <Route path="/member/member-dashboard" element={<MemberDashboard />} />
-
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,0 +1,116 @@
+/* ============================= */
+/* BMI CARD */
+/* ============================= */
+.bmi-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transition: all 0.35s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+.bmi-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #010b0c;
+}
+
+/* ============================= */
+/* FORM */
+/* ============================= */
+.bmi-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.bmi-form input:disabled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.bmi-gender {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+  color: #eb3114;
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.calculate-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ============================= */
+/* RESULT */
+/* ============================= */
+.bmi-result {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.bmi-result h2 {
+  font-size: 2.6rem;
+  margin-bottom: 4px;
+}
+
+.bmi-category {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.bmi-message {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.bmi-result small {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* ============================= */
+/* BMI COLORS */
+/* ============================= */
+.bmi-underweight {
+  color: #0284c7; /* blue */
+}
+
+.bmi-fit {
+  color: #16a34a; /* green */
+}
+
+.bmi-overweight {
+  color: #f59e0b; /* amber */
+}
+
+.bmi-obese {
+  color: #dc2626; /* red */
+}

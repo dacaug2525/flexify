@@ -11,10 +11,10 @@ import com.flexify.member.service.MembershipService;
 
 @RestController
 @RequestMapping("/flexify/member/membership")
+@CrossOrigin(origins="http://localhost:3000")
 public class MembershipController {
 
 	
-
 	    @Autowired
 	    private MembershipService service;
 
@@ -63,6 +63,9 @@ public class MembershipController {
 	        return ResponseEntity.ok(service.getMemberMembershipDetailed(memberId));
 	    }
 
-	
+	    @GetMapping("/plans/view")
+	    public ResponseEntity<?> getAllPlansForMembers() {
+	        return ResponseEntity.ok(service.getAllPlansWithDetails());
+	    }
 
 }

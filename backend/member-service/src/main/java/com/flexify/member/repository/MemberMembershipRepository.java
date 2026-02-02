@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.flexify.member.entities.MemberMembership;
+import com.flexify.member.entities.MemberMembership.Status;
+import com.flexify.member.entities.Plan;
 @Repository
 public interface MemberMembershipRepository extends JpaRepository<MemberMembership, Integer> {
 	 // Find ACTIVE membership of member for a plan
@@ -20,4 +22,9 @@ public interface MemberMembershipRepository extends JpaRepository<MemberMembersh
     Optional<MemberMembership> findActiveMembership(
             @Param("memberId") Integer memberId,
             @Param("planId") Integer planId);
+
+    Optional<MemberMembership> findByMemberIdAndStatus(
+            Integer memberId,
+            MemberMembership.Status status
+    );
 }

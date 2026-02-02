@@ -11,6 +11,8 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -42,6 +44,7 @@ public class Plan {
 	    private PlanDiscount discount;
 
 	    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
+	    @JsonIgnoreProperties("plan")
 	    private List<PlanTraining> planTrainings;
 
 	    // getters & setters
