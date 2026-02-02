@@ -15,6 +15,7 @@ import Trainers from "./components/admin/Trainers";
 import Plans from "./components/admin/Plans";
 import Payments from "./components/admin/Payments";
 import Feedback from "./components/admin/Feedback";
+import TrainerAssignment from "./components/admin/TrainerAssignment";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="members" element={<Members />} />
           <Route path="trainers" element={<Trainers />} />
+          <Route path="assign-trainer" element={<TrainerAssignment />} />
           <Route path="plans" element={<Plans />} />
           <Route path="payments" element={<Payments />} />
           <Route path="feedback" element={<Feedback />} />

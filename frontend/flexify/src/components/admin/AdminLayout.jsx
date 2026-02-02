@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "../common/Navbar";
 import {
   FaHome,
   FaUsers,
   FaUserTie,
   FaDumbbell,
   FaMoneyBill,
-  FaCommentDots
+  FaCommentDots,
+  FaExchangeAlt
 } from "react-icons/fa";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -18,6 +18,14 @@ const AdminLayout = () => {
     { name: "Dashboard", icon: <FaHome />, path: "/admin/dashboard" },
     { name: "Members", icon: <FaUsers />, path: "/admin/members" },
     { name: "Trainers", icon: <FaUserTie />, path: "/admin/trainers" },
+
+    // 👇 NEW ENTRY (Trainer Assignments)
+    {
+      name: "Trainer Assignments",
+      icon: <FaExchangeAlt />,
+      path: "/admin/assignments/assign-trainer",
+    },
+
     { name: "Plans", icon: <FaDumbbell />, path: "/admin/plans" },
     { name: "Payments", icon: <FaMoneyBill />, path: "/admin/payments" },
     { name: "Feedback", icon: <FaCommentDots />, path: "/admin/feedback" },
@@ -32,9 +40,9 @@ const AdminLayout = () => {
     <div className="container-fluid">
       <div className="row min-vh-100">
 
-        {/* Sidebar */}
+        {/* ================= SIDEBAR ================= */}
         <div className="col-md-3 col-lg-2 bg-dark text-white p-3">
-          <h4 className="text-center mb-4">Admin Panel</h4>
+          <h4 className="text-center mb-4 fw-bold">Admin Panel</h4>
 
           <ul className="nav nav-pills flex-column gap-2">
             {menuItems.map((item) => (
@@ -43,17 +51,21 @@ const AdminLayout = () => {
                   className={`nav-link text-start w-100 d-flex align-items-center gap-2 ${
                     active === item.name ? "active" : "text-white"
                   }`}
+                  style={{
+                    borderRadius: "8px",
+                    fontWeight: active === item.name ? "600" : "400",
+                  }}
                   onClick={() => handleNavigation(item)}
                 >
                   {item.icon}
-                  {item.name}
+                  <span>{item.name}</span>
                 </button>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Main Content */}
+        {/* ================= MAIN CONTENT ================= */}
         <div className="col-md-9 col-lg-10 p-4 bg-light">
           <Outlet />
         </div>
