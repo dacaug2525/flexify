@@ -30,4 +30,10 @@ public partial class Member
     public virtual User UidNavigation { get; set; } = null!;
 
     public virtual ICollection<WorkoutSchedule> WorkoutSchedules { get; set; } = new List<WorkoutSchedule>();
+
+    public int UserId { get; set; }  // link to User
+    public virtual User User { get; set; } = null!;  // navigation property
+
+    public int TrainerId { get; set; }
+    public virtual Trainer Trainer { get; set; }
 }

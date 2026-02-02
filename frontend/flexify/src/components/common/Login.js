@@ -23,6 +23,9 @@ function Login() {
       });
 
       const user = response.data;
+      if (user.role.rid === 2) {
+        localStorage.setItem("trainerId", user.uid);
+      }
 
       dispatch(
         loginSuccess({

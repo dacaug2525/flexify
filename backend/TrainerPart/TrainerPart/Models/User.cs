@@ -26,4 +26,5 @@ public partial class User
     public virtual ICollection<Member> Members { get; set; } = new List<Member>();
 
     public virtual ICollection<Trainer> Trainers { get; set; } = new List<Trainer>();
+
 }

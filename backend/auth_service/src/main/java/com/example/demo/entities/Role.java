@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int rid;
+	Integer rid;
 	
 	@Column
 	String rname;

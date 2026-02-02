@@ -20,4 +20,6 @@ public partial class Trainer
     public virtual User UidNavigation { get; set; } = null!;
 
     public virtual ICollection<WorkoutSchedule> WorkoutSchedules { get; set; } = new List<WorkoutSchedule>();
+
+    public User User;
 }
