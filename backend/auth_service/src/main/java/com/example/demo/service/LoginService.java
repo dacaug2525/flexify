@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.LoginDTO;
@@ -12,6 +13,9 @@ public class LoginService {
  
 	@Autowired
 	LoginRepository loginrepo;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	public User login(LoginDTO dto) {
 		User user =loginrepo.findByEmail(dto.getEmail()).orElseThrow(()-> new RuntimeException("Invalid Email"));

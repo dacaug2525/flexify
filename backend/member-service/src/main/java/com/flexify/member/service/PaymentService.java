@@ -37,7 +37,7 @@ public class PaymentService {
     /* ================= PAYMENT ================= */
     public PaymentResponseDTO makePayment(PaymentRequestDTO dto) {
 
-        /* 1️⃣ SAVE PAYMENT */
+        /* SAVE PAYMENT */
         Payment payment = new Payment();
         payment.setMid(dto.getMemberId());
         payment.setAmount(dto.getAmount());
@@ -46,11 +46,11 @@ public class PaymentService {
         payment.setTransactionId(generateTransactionId());
         paymentRepo.save(payment);
 
-        /* 2️⃣ FETCH PLAN */
+        /*  FETCH PLAN */
         Plan plan = planRepo.findById(dto.getPlanId())
                 .orElseThrow(() -> new RuntimeException("Plan not found"));
 
-        /* 3️⃣ FETCH ACTIVE MEMBERSHIP (FAST & SAFE) */
+        /*  FETCH ACTIVE MEMBERSHIP (FAST & SAFE) */
         MemberMembership membership =
                 membershipRepo.findByMemberIdAndStatus(
                         dto.getMemberId(),
@@ -59,13 +59,13 @@ public class PaymentService {
 
         if (membership != null) {
 
-            /* 🔄 SAME PLAN → RENEW */
+            /*  SAME PLAN → RENEW */
             if (membership.getPlan().getPlanId().equals(plan.getPlanId())) {
                 membership.setEndDate(
                         membership.getEndDate().plusMonths(plan.getPlanDuration())
                 );
             }
-            /* 🔁 DIFFERENT PLAN → SWITCH */
+            /*  DIFFERENT PLAN → SWITCH */
             else {
                 membership.setStatus(MemberMembership.Status.INACTIVE);
 
@@ -79,7 +79,7 @@ public class PaymentService {
                 membership.setStatus(MemberMembership.Status.ACTIVE);
             }
         }
-        /* 🆕 NO MEMBERSHIP */
+        /*  NO MEMBERSHIP */
         else {
             membership = new MemberMembership();
             membership.setMemberId(dto.getMemberId());
@@ -93,7 +93,7 @@ public class PaymentService {
 
         membershipRepo.save(membership);
 
-        /* 4️⃣ RESPONSE */
+        /*  RESPONSE */
         PaymentResponseDTO response = new PaymentResponseDTO();
         response.setPaymentId(payment.getPaymentId());
         response.setMemberId(payment.getMid());

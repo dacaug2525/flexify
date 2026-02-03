@@ -18,6 +18,7 @@ import Feedback from "./components/admin/Feedback";
 import Footer from "./components/common/Footer";
 import PlanCatalog from "./components/common/PlanCatalog";
 import Contact from "./components/common/Contact";
+import TrainerAssignment from "./components/admin/TrainerAssignment";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="members" element={<Members />} />
           <Route path="trainers" element={<Trainers />} />
-          <Route path="assign-trainer" element={<TrainerAssignment />} />
+          <Route path="trainerassignment" element={<TrainerAssignment />} />
           <Route path="plans" element={<Plans />} />
           <Route path="payments" element={<Payments />} />
           <Route path="feedback" element={<Feedback />} />
