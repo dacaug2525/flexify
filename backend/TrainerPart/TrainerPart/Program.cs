@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Steeltoe.Discovery.Client;
 using TrainerPart.Models;
 
 namespace TrainerPart
@@ -42,6 +43,11 @@ namespace TrainerPart
                 });
             });
 
+            // 🔹 Steeltoe Eureka (MUST BE BEFORE Build)
+            builder.Services.AddDiscoveryClient(builder.Configuration);
+
+
+
             var app = builder.Build();
 
             // ---------------- MIDDLEWARE ----------------
@@ -59,6 +65,10 @@ namespace TrainerPart
             app.UseCors("AllowReact");
 
             app.UseAuthorization();
+
+            // 🔹 Enable Eureka lifecycle
+            app.UseDiscoveryClient();
+
 
 
 

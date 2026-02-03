@@ -19,10 +19,11 @@ const AssignedMembers = () => {
       .get(`http://localhost:5259/api/trainer/members/${trainerId}`)
       .then((res) => {
         console.log("Assigned Members:", res.data);
-        setMembers(res.data);
+        setMembers(res.data.data);
       })
       .catch((err) => {
         console.error(err);
+
         setError("Unable to load assigned members");
       });
   }, []);
@@ -34,14 +35,10 @@ const AssignedMembers = () => {
   return (
     <div className="card shadow border-0">
       <div className="card-body">
-        <h4 className="fw-bold text-primary mb-3">
-          👥 Assigned Members
-        </h4>
+        <h4 className="fw-bold text-primary mb-3">👥 Assigned Members</h4>
 
         {members.length === 0 ? (
-          <div className="alert alert-info">
-            No members assigned yet.
-          </div>
+          <div className="alert alert-info">No members assigned yet.</div>
         ) : (
           <>
             <div className="table-responsive">
@@ -69,9 +66,7 @@ const AssignedMembers = () => {
 
                       <td>
                         {m.fname} {m.lname}
-                        <div className="text-muted small">
-                          @{m.uname}
-                        </div>
+                        <div className="text-muted small">@{m.uname}</div>
                       </td>
 
                       <td>{m.email}</td>
@@ -97,9 +92,7 @@ const AssignedMembers = () => {
             </div>
 
             {/* ✅ SHOW PROGRESS WHEN MEMBER IS SELECTED */}
-            {selectedMember && (
-              <MemberProgress member={selectedMember} />
-            )}
+            {selectedMember && <MemberProgress member={selectedMember} />}
           </>
         )}
       </div>

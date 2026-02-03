@@ -24,7 +24,7 @@ public class MemberService {
 	    @Autowired
 	    private UserRepository userRepo;
 
-	    // ✅ ADD MEMBER WITH MEDICAL INFO
+	    // ADD MEMBER WITH MEDICAL INFO
 	    public FullMemberResponseDTO addMemberWithMedical(MemberWithMedicalRequestDTO dto) {
 
 	        User user = userRepo.findById(dto.getUid())
@@ -57,7 +57,7 @@ public class MemberService {
 	        return mapToFullResponse(member, user);
 	    }
 
-	    // ✅ FETCH SINGLE MEMBER (FULL INFO)
+	    // FETCH SINGLE MEMBER (FULL INFO)
 	    public FullMemberResponseDTO getMember(Integer mid) {
 
 	        Member member = memberRepo.findById(mid)
@@ -69,7 +69,7 @@ public class MemberService {
 	        return mapToFullResponse(member, user);
 	    }
 
-	    // ✅ FETCH ALL MEMBERS
+	    // FETCH ALL MEMBERS
 	    public List<FullMemberResponseDTO> getAllMembers() {
 
 	        return memberRepo.findAll()
@@ -81,7 +81,7 @@ public class MemberService {
 	                .toList();
 	    }
 
-	    // ✅ UPDATE MEMBER + MEDICAL INFO
+	    // UPDATE MEMBER + MEDICAL INFO
 	    public FullMemberResponseDTO updateMember(Integer mid, MemberWithMedicalRequestDTO dto) {
 
 	        Member member = memberRepo.findById(mid)
@@ -113,7 +113,7 @@ public class MemberService {
 	        return mapToFullResponse(member, user);
 	    }
 
-	    // ✅ SOFT DELETE
+	    //  SOFT DELETE
 	    public void deleteMember(Integer mid) {
 	        Member member = memberRepo.findById(mid)
 	                .orElseThrow(() -> new RuntimeException("Member not found"));
@@ -121,7 +121,7 @@ public class MemberService {
 	        memberRepo.save(member);
 	    }
 
-	    // 🔁 MAPPER
+	    //  MAPPER
 	    private FullMemberResponseDTO mapToFullResponse(Member member, User user) {
 
 	        FullMemberResponseDTO res = new FullMemberResponseDTO();
@@ -154,7 +154,7 @@ public class MemberService {
 	        return res;
 	    }
 	    
-	 // ✅ FETCH MEMBER BY UID (FOR PROFILE SCREEN)
+	 //  FETCH MEMBER BY UID (FOR PROFILE SCREEN)
 	    public FullMemberResponseDTO getMemberByUid(Integer uid) {
 
 	        Member member = memberRepo.findByUid(uid).orElse(null);

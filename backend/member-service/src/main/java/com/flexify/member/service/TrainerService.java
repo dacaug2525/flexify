@@ -12,13 +12,10 @@ public class TrainerService {
 	    @Autowired
 	    private TrainerRepository trainerRepo;
 
-	    /*
-	     * Get trainer assigned to a member
-	     * (TEMP logic – replace with real mapping later)
-	     */
+	    
 	    public Trainer getTrainerByMember(Integer memberId) {
 
-	        // ⚠ TEMP: until mapping exists
+	        //  until mapping exists
 	        return trainerRepo.findAll()
 	                .stream()
 	                .findFirst()

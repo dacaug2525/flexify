@@ -29,7 +29,7 @@ public class PaymentRequestDTO {
 	    @Size(min = 2, max = 45)
 	    private String paymentMethod;
 
-	    // NO transactionId here (backend generates it)
+	    // NO transactionId here (service generates it)
 
 	    // getters & setters
 	}
