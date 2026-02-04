@@ -60,7 +60,7 @@ public class WorkoutScheduleController : ControllerBase
             TrainerId = dto.TrainerId,
             MemberId = dto.MemberId,
             WorkoutDesc = dto.WorkoutDesc,
-            Days = dto.Days
+            Days = dto.Days ?? 0
         };
 
         _context.WorkoutSchedules.Add(workout);
@@ -79,7 +79,7 @@ public class WorkoutScheduleController : ControllerBase
             return NotFound("Workout not found");
 
         workout.WorkoutDesc = dto.WorkoutDesc;
-        workout.Days = dto.Days;
+        workout.Days = dto.Days??0;
 
         _context.SaveChanges();
 

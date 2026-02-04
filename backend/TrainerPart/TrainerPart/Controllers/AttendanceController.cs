@@ -32,7 +32,7 @@ namespace TrainerPart.Controllers
                     MemberName = u.Fname + " " + u.Lname,
                     Email = u.Email,
                     Date = a.Date,
-                    Status = a.Status.ToString()
+                    Status = a.Status
                 };
 
             return Ok(attendance.ToList());
@@ -51,10 +51,37 @@ namespace TrainerPart.Controllers
                                  Mid = m.Mid,
                                  MemberName = u.Fname + " " + u.Lname,
                                  Date = a.Date,
-                                 Status = a.Status.ToString()
+                                 Status = a.Status
                              };
 
             return Ok(attendance.ToList());
         }
+
+        [HttpPost("mark")]
+        public IActionResult MarkAttendance(MarkAttendanceDto dto)
+        {
+            var existing = _context.MemberAttendences
+                .FirstOrDefault(a => a.Mid == dto.Mid && a.Date.Date == dto.Date.Date);
+
+            if (existing != null)
+            {
+                existing.Status = dto.Status;
+            }
+            else
+            {
+                var attendance = new MemberAttendence
+                {
+                    Mid = dto.Mid,
+                    Date = dto.Date,
+                    Status = dto.Status
+                };
+                _context.MemberAttendences.Add(attendance);
+            }
+
+            _context.SaveChanges();
+            return Ok();
+        }
+
+
     }
 }

@@ -3,77 +3,107 @@ import axios from "axios";
 
 const MemberAttendance = () => {
   const [attendance, setAttendance] = useState([]);
+  const [statusMap, setStatusMap] = useState({});
+  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    const trainerId = localStorage.getItem("trainerId");
+  const trainerId = localStorage.getItem("tid");
 
+  const fetchAttendance = () => {
+    axios
+      .get(`http://localhost:5259/api/attendance/trainer/${trainerId}`)
+      .then((res) => {
+        setAttendance(res.data);
+
+        // initialize dropdown values
+        const initialStatus = {};
+        res.data.forEach(a => {
+          initialStatus[a.mid] = a.status;
+        });
+        setStatusMap(initialStatus);
+      })
+      .catch(() => setError("Unable to load attendance"));
+  };
+
+  useEffect(() => {
     if (!trainerId) {
       setError("Trainer not logged in");
       return;
     }
-
-    axios
-      .get(`http://localhost:5259/api/attendance/trainer/${trainerId}`)
-      .then((res) => {
-        console.log("Attendance Data:", res.data);
-        setAttendance(res.data);
-      })
-      .catch((err) => {
-        console.error("AXIOS ERROR:", err);
-        setError("Unable to load attendance");
-      });
+    fetchAttendance();
   }, []);
 
-  if (error) {
-    return <div className="alert alert-danger">{error}</div>;
-  }
+  const handleStatusChange = (mid, value) => {
+    setStatusMap({ ...statusMap, [mid]: value });
+  };
+
+  const markAttendance = (mid) => {
+    const payload = {
+      mid: mid,
+      date: new Date().toISOString(),
+      status: statusMap[mid]
+    };
+
+    axios
+      .post("http://localhost:5259/api/attendance/mark", payload)
+      .then(() => {
+        setMessage("Attendance marked successfully");
+        fetchAttendance(); // 🔄 refresh table
+      })
+      .catch(() => setError("Failed to mark attendance"));
+  };
 
   return (
     <div className="card shadow border-0">
       <div className="card-body">
-        
+
+        <h4 className="mb-3">Mark Member Attendance</h4>
+
+        {message && <div className="alert alert-success">{message}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
 
         {attendance.length === 0 ? (
-          <div className="alert alert-info">
-            No attendance records found.
-          </div>
+          <div className="alert alert-info">No members found.</div>
         ) : (
           <div className="table-responsive">
             <table className="table table-hover align-middle">
               <thead className="table-dark">
                 <tr>
-                  <th>Member ID</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Date</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
 
               <tbody>
                 {attendance.map((a) => (
-                  <tr key={a.attendanceId}>
-                    <td className="fw-bold text-primary">{a.mid}</td>
-
+                  <tr key={a.mid}>
                     <td className="fw-semibold">{a.memberName}</td>
-
                     <td>{a.email}</td>
+                    <td>{new Date().toLocaleDateString()}</td>
 
                     <td>
-                      {new Date(a.date).toLocaleDateString()}
+                      <select
+                        className="form-select"
+                        value={statusMap[a.mid] || "PRESENT"}
+                        onChange={(e) =>
+                          handleStatusChange(a.mid, e.target.value)
+                        }
+                      >
+                        <option value="PRESENT">Present</option>
+                        <option value="ABSENT">Absent</option>
+                      </select>
                     </td>
 
                     <td>
-                      <span
-                        className={`badge rounded-pill px-3 py-2 ${
-                          a.status?.toLowerCase() === "present"
-                            ? "bg-success"
-                            : "bg-danger"
-                        }`}
+                      <button
+                        className="btn btn-success btn-sm"
+                        onClick={() => markAttendance(a.mid)}
                       >
-                        {a.status}
-                      </span>
+                        Save
+                      </button>
                     </td>
                   </tr>
                 ))}

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\Controllers",
+    "\\Controllers\\bin",
+    "\\Controllers\\bin\\Debug",
+    "\\DTO's"
+  ],
+  "SelectedNode": "\\DTO's\\WorkoutDto.cs",
+  "PreviewInSolutionExplorer": false
+}

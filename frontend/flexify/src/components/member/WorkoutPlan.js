@@ -61,7 +61,7 @@ const WorkoutPlan = () => {
       <style>{`
         .page-heading {
           margin-bottom: 22px;
-          color: #2563eb;
+          color: #000103;
           font-weight: 600;
         }
 

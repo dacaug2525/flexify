@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrainerPart.DTO_s;
 using TrainerPart.Models;
 
@@ -16,63 +17,61 @@ namespace TrainerPart.Controllers
             _context = context;
         }
 
-        // READ
         [HttpGet("profile/{uid}")]
-        public IActionResult GetProfile(int uid)
+        public IActionResult GetProfileByTrainerId(int uid)
         {
-            var trainerProfile =
-                (from t in _context.Trainers
-                 join u in _context.Users
-                     on t.Uid equals u.Uid
-                 where u.Uid == uid
-                 select new TrainerProfileDto
-                 {
-                     Tid = t.Tid,
-                     Experience = t.Experience,
-                     Salary = t.Salary,
-                     Uname = u.Uname,
-                     Password = u.Password,
-                     Fname = u.Fname,
-                     Lname = u.Lname,
-                     Email = u.Email,
-                     Contact = u.Contact,
-                     Gender = u.Gender,
-                   
-                 }).FirstOrDefault();
+            var trainerProfile = (
+                from t in _context.Trainers
+                join u in _context.Users on t.Uid equals u.Uid
+                where t.Uid == uid
+                select new TrainerProfileDto
+                {
+                    Tid = t.Tid,
+                    Experience = t.Experience,
+                    Salary = t.Salary,
+                    Uname = u.Uname,
+                    Password = u.Password,
+                    Fname = u.Fname,
+                    Lname = u.Lname,
+                    Email = u.Email,
+                    Contact = u.Contact,
+                    Gender = u.Gender
+                }
+            ).FirstOrDefault();
 
-                    if (trainerProfile == null)
-                        return NotFound("Trainer not found");
 
-                    return Ok(trainerProfile);
+            if (trainerProfile == null)
+                return NotFound("Trainer not found");
+
+            return Ok(trainerProfile);
         }
 
-        //// UPDATE
-        //[HttpPut("profile")]
-        //public IActionResult UpdateProfile(TrainerProfileDto dto)
+
+        //[HttpPut("profile/update/{trainerId}")]
+        //public IActionResult UpdateTrainerProfile(int trainerId,[FromBody] UpdateTrainerProfileDtocs dto)
         //{
-        //    // 1️⃣ Find trainer
-        //    var trainer = _context.Trainers.FirstOrDefault(t => t.Tid == dto.Tid);
+        //    var trainer = _context.Trainers
+        //        .Include(t => t.User)   // ✅ correct navigation
+        //        .FirstOrDefault(t => t.Tid == trainerId);
+
         //    if (trainer == null)
         //        return NotFound("Trainer not found");
 
-        //    // 2️⃣ Update trainer table (salary NOT touched)
+        //    if (trainer.User == null)
+        //        return BadRequest("Linked user not found");
+
+        //    // 🔹 USER TABLE
+        //    trainer.User.Uname = dto.Uname;
+        //    trainer.User.Email = dto.Email;
+        //    trainer.User.Contact = dto.Contact;
+        //    trainer.User.Gender = dto.Gender;
+
+        //    // 🔹 TRAINER TABLE
         //    trainer.Experience = dto.Experience;
 
-        //    // 3️⃣ Find linked user
-        //    var user = _context.Users.FirstOrDefault(u => u.Uid == trainer.Uid);
-        //    if (user == null)
-        //        return NotFound("User not found");
+        //    _context.SaveChanges();  // ✅ WILL UPDATE DB
 
-        //    // 4️⃣ Update user table
-        //    user.Fname = dto.Fname;
-        //    user.Lname = dto.Lname;
-        //    user.Contact = dto.Contact;
-        //    user.Gender = dto.Gender;
-
-        //    // 5️⃣ Save
-        //    _context.SaveChanges();
-
-        //    return Ok("Trainer profile updated successfully");
+        //    return Ok(new { message = "Profile updated successfully" });
         //}
 
         [HttpGet("members/{tid}")]
@@ -94,6 +93,7 @@ namespace TrainerPart.Controllers
                     Height = m.Height,
                     Weight = m.Weight,
                     Status = m.Status
+
                 };
 
             return Ok(members.ToList());

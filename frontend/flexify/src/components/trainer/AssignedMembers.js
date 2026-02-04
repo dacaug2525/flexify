@@ -8,7 +8,7 @@ const AssignedMembers = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
   useEffect(() => {
-    const trainerId = localStorage.getItem("trainerId");
+    const trainerId = localStorage.getItem("tid");
 
     if (!trainerId) {
       setError("Trainer not logged in");
@@ -19,7 +19,7 @@ const AssignedMembers = () => {
       .get(`http://localhost:5259/api/trainer/members/${trainerId}`)
       .then((res) => {
         console.log("Assigned Members:", res.data);
-        setMembers(res.data.data);
+        setMembers(res.data);
       })
       .catch((err) => {
         console.error(err);

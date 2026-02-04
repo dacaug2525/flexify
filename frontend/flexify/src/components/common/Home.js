@@ -34,9 +34,7 @@ function Home() {
       }}
     >
       <div className="home-content">
-        <h1 className="home-brand">
-          Flex<span>ify</span>
-        </h1>
+        <h1 className="home-brand">Flexify</h1>
 
         <p className="home-tagline">
           Your all-in-one gym management & workout tracking platform.

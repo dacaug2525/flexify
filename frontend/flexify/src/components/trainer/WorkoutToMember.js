@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const TrainerWorkoutManager = () => {
-  const trainerId = localStorage.getItem("trainerId");
+  const trainerId = localStorage.getItem("tid");
 
   const [members, setMembers] = useState([]);
   const [workouts, setWorkouts] = useState([]);

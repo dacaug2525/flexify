@@ -42,6 +42,10 @@ const DashboardHome = ({ setActive }) => {
   const [latestWeight, setLatestWeight] = useState(null);
   const [latestBmi, setLatestBmi] = useState(null);
 
+  /* ===== ATTENDANCE COUNTS ===== */
+  const [presentCount, setPresentCount] = useState(0);
+  const [absentCount, setAbsentCount] = useState(0);
+
   useEffect(() => {
     if (!member?.mid) return;
 
@@ -64,6 +68,23 @@ const DashboardHome = ({ setActive }) => {
           setLatestBmi(last.bmi);
         }
       });
+  }, [member]);
+
+  /* ===== FETCH ATTENDANCE COUNTS ===== */
+  useEffect(() => {
+    if (!member?.mid) return;
+
+    Promise.all([
+      axios.get(
+        `http://localhost:8083/flexify/member/attendence/count/${member.mid}/PRESENT`,
+      ),
+      axios.get(
+        `http://localhost:8083/flexify/member/attendence/count/${member.mid}/ABSENT`,
+      ),
+    ]).then(([p, a]) => {
+      setPresentCount(p.data);
+      setAbsentCount(a.data);
+    });
   }, [member]);
 
   const remainingDays = activeMembership
@@ -103,10 +124,11 @@ const DashboardHome = ({ setActive }) => {
         {/* ATTENDANCE */}
         <div
           className="card-ui clickable"
-          onClick={() => setActive("Mark Attendance")}
+          onClick={() => setActive("Attendance History")}
         >
           <h4>Attendance</h4>
-          <p className="card-value">Mark Today</p>
+          <p className="card-value">{presentCount} days Present</p>
+          <p>{absentCount} days Absent</p>
         </div>
 
         {/* BMI */}
@@ -165,7 +187,7 @@ const MemberDashboard = () => {
     { name: "Purchase Plan", icon: <FaShoppingCart /> },
     { name: "Make Payment", icon: <FaCreditCard /> },
     { name: "Workout Schedule", icon: <FaDumbbell /> },
-    { name: "Mark Attendance", icon: <FaCalendarCheck /> },
+    { name: "Attendance History", icon: <FaCalendarCheck /> },
     { name: "Renew Membership", icon: <FaRedo /> },
     { name: "Feedback & Rating", icon: <FaStar /> },
   ];
@@ -184,7 +206,7 @@ const MemberDashboard = () => {
         return <MakePayment />;
       case "Workout Schedule":
         return <WorkoutPlan />;
-      case "Mark Attendance":
+      case "Attendance History":
         return <Attendance />;
       case "Renew Membership":
         return <RenewMembership />;

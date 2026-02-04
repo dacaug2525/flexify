@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrainerPart.Models;
 
 public partial class Trainer
 {
+    [Key]
     public int Tid { get; set; }
 
     public int Experience { get; set; }
@@ -21,5 +23,5 @@ public partial class Trainer
 
     public virtual ICollection<WorkoutSchedule> WorkoutSchedules { get; set; } = new List<WorkoutSchedule>();
 
-    public User User;
+    public virtual User User { get; set; } = null!;
 }
