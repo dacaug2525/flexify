@@ -48,7 +48,7 @@ const PurchasePlan = ({ setActive }) => {
       <h3
         className="mb-4"
         style={{
-          color: "#2563eb", // same as Profile heading
+          color: "#000103", // same as Profile heading
           fontWeight: 600,
         }}
       >

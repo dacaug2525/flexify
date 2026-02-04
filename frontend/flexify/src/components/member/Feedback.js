@@ -66,7 +66,7 @@ const Feedback = () => {
       <h3
         className="mb-4"
         style={{
-          color: "#2563eb",
+          color: "#000103",
           fontWeight: 600,
         }}
       >
