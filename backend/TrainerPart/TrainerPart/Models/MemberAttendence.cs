@@ -11,7 +11,7 @@ public partial class MemberAttendence
 
     public DateTime Date { get; set; }
 
-    public AttendanceStatus Status { get; set; }
+    public string Status { get; set; } = null!;
 
     public virtual Member MidNavigation { get; set; } = null!;
 }

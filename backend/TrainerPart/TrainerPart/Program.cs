@@ -43,12 +43,14 @@ namespace TrainerPart
                 });
             });
 
-            // 🔹 Steeltoe Eureka (MUST BE BEFORE Build)
+            // Add Steeltoe Discovery Client
             builder.Services.AddDiscoveryClient(builder.Configuration);
 
-
-
             var app = builder.Build();
+
+
+
+
 
             // ---------------- MIDDLEWARE ----------------
 
@@ -66,10 +68,8 @@ namespace TrainerPart
 
             app.UseAuthorization();
 
-            // 🔹 Enable Eureka lifecycle
+            // Use Steeltoe Discovery Client
             app.UseDiscoveryClient();
-
-
 
 
             app.MapControllers();
