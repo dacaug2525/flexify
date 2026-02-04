@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TrainerPart"
+    "\\TrainerPart",
+    "\\TrainerPart\\Controllers",
+    "\\TrainerPart\\DTO's",
+    "\\TrainerPart\\Models",
+    "\\TrainerPart\\Properties"
   ],
   "SelectedNode": "\\TrainerPart.sln",
   "PreviewInSolutionExplorer": false

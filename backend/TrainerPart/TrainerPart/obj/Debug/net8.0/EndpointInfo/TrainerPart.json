@@ -51,6 +51,60 @@
         }
       }
     },
+    "/api/attendance/mark": {
+      "post": {
+        "tags": [
+          "Attendance"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarkAttendanceDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarkAttendanceDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarkAttendanceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/dashboard/{trainerId}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "name": "trainerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/progress/trainer/{tid}/members": {
       "get": {
         "tags": [
@@ -115,17 +169,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             }
           }
@@ -198,17 +252,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProgressDto"
+                "$ref": "#/components/schemas/ProgressCreateUpdateDto"
               }
             }
           }
@@ -236,6 +290,48 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/trainer/profile/update/{trainerId}": {
+      "put": {
+        "tags": [
+          "Trainer"
+        ],
+        "parameters": [
+          {
+            "name": "trainerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTrainerProfileDtocs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTrainerProfileDtocs"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTrainerProfileDtocs"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -411,36 +507,71 @@
         },
         "additionalProperties": false
       },
-      "ProgressDto": {
+      "AttendanceStatus": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MarkAttendanceDto": {
         "type": "object",
         "properties": {
-          "progressId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "mid": {
             "type": "integer",
             "format": "int32"
           },
-          "memberName": {
+          "date": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttendanceStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressCreateUpdateDto": {
+        "type": "object",
+        "properties": {
+          "mid": {
+            "type": "integer",
+            "format": "int32"
           },
           "weight": {
-            "type": "number",
-            "format": "double"
-          },
-          "bmi": {
             "type": "number",
             "format": "double"
           },
           "remark": {
             "type": "string",
             "nullable": true
-          },
-          "recordedDate": {
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTrainerProfileDtocs": {
+        "type": "object",
+        "properties": {
+          "uname": {
             "type": "string",
-            "format": "date-time"
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

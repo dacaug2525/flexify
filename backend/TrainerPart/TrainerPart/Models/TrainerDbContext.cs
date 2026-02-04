@@ -35,9 +35,7 @@ public partial class TrainerDbContext : DbContext
 
     public virtual DbSet<WorkoutSchedule> WorkoutSchedules { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=localhost;database=flexifydb;user=root;password=Pass@123", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.38-mysql"));
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)=> optionsBuilder.UseMySql("server=localhost;database=flexifydb;user=root;password=root", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.38-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -158,7 +156,32 @@ public partial class TrainerDbContext : DbContext
             entity.HasKey(e => e.WorkoutId).HasName("PRIMARY");
             entity.ToTable("workout_schedule");
             entity.Property(e => e.WorkoutId).HasColumnName("workout_id");
+
+            entity.HasOne(w => w.Member)
+      .WithMany(m => m.WorkoutSchedules)
+      .HasForeignKey(w => w.MemberId);
+
+
+            entity.HasOne(w => w.Trainer)
+                  .WithMany(t => t.WorkoutSchedules)
+                  .HasForeignKey(w => w.TrainerId);
         });
+
+        // ================= TRAINING TABLE =================
+        modelBuilder.Entity<TrainingTable>(entity =>
+        {
+            entity.ToTable("training_table");
+
+            entity.HasKey(e => new { e.TrId});
+
+            entity.Property(e => e.TrId).HasColumnName("tid");
+          
+        });
+
+        modelBuilder.Entity<TrainerSpecialization>()
+        .HasKey(ts => new { ts.Tid, ts.TrainingId });
+
+        base.OnModelCreating(modelBuilder);
 
         OnModelCreatingPartial(modelBuilder);
     }

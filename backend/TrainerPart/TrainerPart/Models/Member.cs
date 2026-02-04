@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrainerPart.Models;
 
 public partial class Member
 {
+    [Key]
     public int Mid { get; set; }
 
     public DateTime Dob { get; set; }
@@ -31,9 +33,6 @@ public partial class Member
 
     public virtual ICollection<WorkoutSchedule> WorkoutSchedules { get; set; } = new List<WorkoutSchedule>();
 
-    public int UserId { get; set; }  // link to User
-    public virtual User User { get; set; } = null!;  // navigation property
-
-    public int TrainerId { get; set; }
-    public virtual Trainer Trainer { get; set; }
+    
+   
 }

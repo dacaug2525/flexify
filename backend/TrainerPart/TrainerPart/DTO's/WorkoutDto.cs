@@ -6,7 +6,7 @@
         public int MemberId { get; set; }
         public string MemberName { get; set; }
         public string WorkoutDesc { get; set; }
-        public int? Days { get; set; }
+        public int Days { get; set; }
 
     }
 }

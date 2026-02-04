@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrainerPart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+873f4ac49fd40ddc08224dafd2e7024b5d09a1ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d90c51d4ad6bda80377ac7a271caaaaa57e517af")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrainerPart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrainerPart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

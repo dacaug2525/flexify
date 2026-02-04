@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "TrainerPart.Controllers.AttendanceController",
+    "Method": "MarkAttendance",
+    "RelativePath": "api/attendance/mark",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TrainerPart.DTO_s.MarkAttendanceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TrainerPart.Controllers.AttendanceController",
     "Method": "GetAttendanceByMember",
     "RelativePath": "api/attendance/member/{mid}",
     "HttpMethod": "GET",
@@ -19,6 +35,22 @@
     "ContainingType": "TrainerPart.Controllers.AttendanceController",
     "Method": "GetAttendanceByTrainer",
     "RelativePath": "api/attendance/trainer/{trainerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trainerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TrainerPart.Controllers.DashboardController",
+    "Method": "GetTrainerDashboard",
+    "RelativePath": "api/Dashboard/dashboard/{trainerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -62,7 +94,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TrainerPart.DTO_s.ProgressDto",
+        "Type": "TrainerPart.DTO_s.ProgressCreateUpdateDto",
         "IsRequired": true
       }
     ],
@@ -88,7 +120,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TrainerPart.DTO_s.ProgressDto",
+        "Type": "TrainerPart.DTO_s.ProgressCreateUpdateDto",
         "IsRequired": true
       }
     ],
@@ -149,7 +181,7 @@
   },
   {
     "ContainingType": "TrainerPart.Controllers.TrainerController",
-    "Method": "GetProfile",
+    "Method": "GetProfileByTrainerId",
     "RelativePath": "api/trainer/profile/{uid}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -158,6 +190,27 @@
       {
         "Name": "uid",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TrainerPart.Controllers.TrainerController",
+    "Method": "UpdateTrainerProfile",
+    "RelativePath": "api/trainer/profile/update/{trainerId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trainerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TrainerPart.DTO_s.UpdateTrainerProfileDtocs",
         "IsRequired": true
       }
     ],

@@ -84,10 +84,10 @@ public class ProgressController : ControllerBase
 
         return Ok(progressList.ToList());
     }
-   
+
 
     [HttpPost("trainer/{tid}")]
-    public IActionResult AddProgress(int tid, ProgressDto dto)
+    public IActionResult AddProgress(int tid,ProgressCreateUpdateDto dto)
     {
         if (dto.Weight <= 0)
             return BadRequest("Invalid weight");
@@ -121,7 +121,10 @@ public class ProgressController : ControllerBase
     }
 
     [HttpPut("trainer/{tid}/{progressId}")]
-    public IActionResult UpdateProgress(int tid, int progressId, ProgressDto dto)
+    public IActionResult UpdateProgress(
+    int tid,
+    int progressId,
+    ProgressCreateUpdateDto dto)
     {
         if (dto.Weight <= 0)
             return BadRequest("Invalid weight");

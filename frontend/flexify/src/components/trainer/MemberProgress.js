@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "http://localhost:5259/api/progress";
 
 const TrainerProgressManager = () => {
-  const trainerId = localStorage.getItem("trainerId");
+  const trainerId = localStorage.getItem("tid");
 
   const [members, setMembers] = useState([]);
   const [progressList, setProgressList] = useState([]);

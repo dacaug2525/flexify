@@ -3,8 +3,11 @@ import axios from "axios";
 import { FaUser, FaEnvelope, FaPhone, FaVenusMars, FaBriefcase, FaRupeeSign } from "react-icons/fa";
 
 const TrainerProfile = () => {
-  const [trainer, setTrainer] = useState(null);
-  const [error, setError] = useState("");
+ const [trainer, setTrainer] = useState(null);
+const [editMode, setEditMode] = useState(false);
+const [formData, setFormData] = useState({});
+const [error, setError] = useState("");
+
 
   useEffect(() => {
     const trainerId = localStorage.getItem("trainerId");
