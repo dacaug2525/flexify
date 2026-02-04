@@ -25,7 +25,7 @@ public class MemberTrainerAssignment {
 
     @Column(name = "assign_date", nullable = false)
     private LocalDateTime assignDate;
-
+    
 	public MemberTrainerAssignment() {
 		super();
 		// TODO Auto-generated constructor stub

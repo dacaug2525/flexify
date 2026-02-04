@@ -1,64 +1,50 @@
 package com.flexify.admin.services;
 
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flexify.admin.dto.MemberDTO;
-import com.flexify.admin.dto.MemberDetailDTO;
-import com.flexify.admin.dto.MemberListDTO;
 import com.flexify.admin.entities.Member;
-import com.flexify.admin.entities.UserEntity;
-import com.flexify.admin.exception.ResourceNotFoundException;
 import com.flexify.admin.repositries.MemberRepository;
-import com.flexify.admin.repositries.UserRepository;
 
 
 @Service
 public class MemberService {
 	
 	@Autowired
-    private MemberRepository memberRepository;
+    private MemberRepository memberRepo;
 
-	@Autowired
-	private UserRepository userRepo;
-	
-	
-    // CREATE
-    public Member addMember(MemberDTO dto) {
+    // MEMBER DETAILS
+	public MemberDTO getMemberByUid(Integer uid) {
+        Optional<Member> memberOpt = memberRepo.findByUid(uid);
+
+        if (memberOpt.isPresent()) {
+            Member member = memberOpt.get();
+            MemberDTO dto = new MemberDTO();
+            dto.setDob(member.getDob());
+            dto.setHeight(member.getHeight());
+            dto.setWeight(member.getWeight());
+            dto.setAddress(member.getAddress());
+            dto.setJoinDate(member.getJoinDate());
+            dto.setStatus(member.getStatus());
+            dto.setUid(member.getUid());
+            return dto;
+        } else {
+            return null; // or throw custom exception if you prefer
+        }
+    }
+
+    // ADD MEMBER (after login)
+    public void addMember(MemberDTO dto) {
+
         Member member = new Member();
-        mapDtoToEntity(dto, member);
-        return memberRepository.save(member);
-    }
-
-    // READ BY ID
-    public Member getMemberById(Integer id) {
-        return memberRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Member not found"));
-    }
-
-    // READ ALL
-    public List<Member> getAllMembers() {
-        return memberRepository.findAll();
-    }
-
-    // UPDATE
-    public Member updateMember(Integer id, MemberDTO dto) {
-        Member member = getMemberById(id);
-        mapDtoToEntity(dto, member);
-        return memberRepository.save(member);
-    }
-
-    // DELETE
-    public void deleteMember(Integer id) {
-        Member member = getMemberById(id);
-        memberRepository.delete(member);
-    }
-
-    // helper
-    private void mapDtoToEntity(MemberDTO dto, Member member) {
         member.setDob(dto.getDob());
         member.setHeight(dto.getHeight());
         member.setWeight(dto.getWeight());
@@ -66,50 +52,28 @@ public class MemberService {
         member.setJoinDate(dto.getJoinDate());
         member.setStatus(dto.getStatus());
         member.setUid(dto.getUid());
+
+        memberRepo.save(member);
     }
     
- // 🔹 TABLE VIEW
-    public List<MemberListDTO> getAllMembersForAdmin() {
+    public List<Map<String, Object>> getMembersTrainings(int planId) {
+        List<Object[]> rows = memberRepo.findMembersWithTrainingsAndTrainers(planId);
+        List<Map<String, Object>> result = new ArrayList<>();
 
-        List<Member> members = memberRepository.findAll();
-        List<MemberListDTO> list = new ArrayList<>();
-
-        for (Member m : members) {
-        	UserEntity u = userRepo.findById(m.getUid()).orElse(null);
-        	if (u == null) continue;
-
-            MemberListDTO dto = new MemberListDTO();
-            dto.setUid(u.getUid());
-            dto.setUname(u.getUname());
-            dto.setFname(u.getFname());
-            dto.setLname(u.getLname());
-            dto.setContact(u.getContact());
-            dto.setJoinDate(m.getJoinDate());
-            dto.setStatus(m.getStatus().name());
-
-            list.add(dto);
+        for (Object[] row : rows) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("memberName", row[0]);
+            map.put("trainerUserId", row[1]);
+            map.put("trainerName", row[2]);
+            map.put("specialization", row[3]);
+            map.put("trainingId", row[4]);
+            result.add(map);
         }
-        return list;
+
+        return result;
     }
 
-    // 🔹 DETAILS VIEW
-    public MemberDetailDTO getMemberDetails(Integer uid) {
-
-        Member m = memberRepository.findByUid(uid)
-                .orElseThrow(() -> new RuntimeException("Member not found"));
-
-        UserEntity u = userRepo.findById(m.getUid())
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        MemberDetailDTO dto = new MemberDetailDTO();
-        dto.setMid(m.getMid());
-        dto.setEmail(u.getEmail());
-        dto.setDob(m.getDob());
-        dto.setHeight(m.getHeight());
-        dto.setWeight(m.getWeight());
-        dto.setAddress(m.getAddress());
-        dto.setGender(u.getGender());
-
-        return dto;
-    }
+	public List<Member> getAllMembersForAdmin() {
+		return memberRepo.findAll();
+	}
 }

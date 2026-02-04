@@ -10,4 +10,6 @@ import com.flexify.admin.entities.Trainer;
 @Repository
 public interface TrainerRepository extends JpaRepository<Trainer, Integer> {
 	Trainer findByUid(Integer uid);
+
+	boolean existsByUid(Integer uid);
 }

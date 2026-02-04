@@ -1,22 +1,20 @@
 package com.flexify.admin.controllers;
 
+
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flexify.admin.dto.MemberDTO;
-import com.flexify.admin.dto.MemberDetailDTO;
-import com.flexify.admin.dto.MemberListDTO;
 import com.flexify.admin.entities.Member;
 import com.flexify.admin.services.MemberService;
 
@@ -25,8 +23,9 @@ import com.flexify.admin.services.MemberService;
 @RequestMapping("/flexify/admin/members")
 public class MemberController {
 	@Autowired
-    private MemberService memberService;
+    private MemberService service;
 
+	/*
     @PostMapping("/add")
     public ResponseEntity<?> addMember(@RequestBody MemberDTO dto) {
         return ResponseEntity.ok(memberService.addMember(dto));
@@ -55,15 +54,38 @@ public class MemberController {
         return ResponseEntity.ok("Member deleted successfully");
     }
     
- // 🔹 TABLE DATA
-    @GetMapping("/list")
-    public List<MemberListDTO> getMembers() {
-        return memberService.getAllMembersForAdmin();
-    }
+ // 
 
     // 🔹 DETAILS DATA
     @GetMapping("/details/{uid}")
     public MemberDetailDTO getDetails(@PathVariable Integer uid) {
         return memberService.getMemberDetails(uid);
+    }
+    */
+	
+
+    @GetMapping("/list")
+    public List<Member> getMembers() {
+        return service.getAllMembersForAdmin();
+    }
+
+    // MEMBER DETAILS
+	 // Fetch member by user id
+    @GetMapping("/details/{uid}")
+    public MemberDTO getMemberByUid(@PathVariable Integer uid) {
+        return service.getMemberByUid(uid);
+    }
+
+    // ADD MEMBER
+    @PostMapping("/add")
+    public ResponseEntity<?> addMember(@RequestBody MemberDTO dto) {
+        service.addMember(dto);
+        return ResponseEntity.ok("Member added successfully");
+    }
+    
+    @GetMapping("/plan/{planId}/trainings")
+    public ResponseEntity<List<Map<String, Object>>> getMembersTrainings(@PathVariable int planId) {
+        List<Map<String, Object>> list = service.getMembersTrainings(planId);
+        return ResponseEntity.ok(list);
     }
 }

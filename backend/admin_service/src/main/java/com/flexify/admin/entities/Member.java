@@ -2,6 +2,7 @@ package com.flexify.admin.entities;
 
 import java.time.LocalDateTime;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,6 +19,7 @@ public class Member {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "mid")
 	    private Integer mid;
+	 	 	
 
 	    @Column(name = "dob", nullable = false)
 	    private LocalDateTime dob;
@@ -40,7 +42,8 @@ public class Member {
 
 	    @Column(name = "uid", nullable = false)
 	    private Integer uid;    // Foreign key from user table
-
+	    
+	    
 		public Member() {
 			super();
 			// TODO Auto-generated constructor stub

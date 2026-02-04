@@ -10,6 +10,25 @@ public class MemberDetailDTO {
     private Integer weight;
     private String address;
     private String gender;
+    
+    public MemberDetailDTO(
+            Integer mid,
+            String email,
+            LocalDateTime dob,
+            Integer height,
+            Integer weight,
+            String address,
+            String gender
+    ) {
+        this.mid = mid;
+        this.email = email;
+        this.dob = dob;
+        this.height = height;
+        this.weight = weight;
+        this.address = address;
+        this.gender = gender;
+    }
+    
 	public Integer getMid() {
 		return mid;
 	}

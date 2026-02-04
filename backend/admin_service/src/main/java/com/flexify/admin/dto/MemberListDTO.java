@@ -2,6 +2,8 @@ package com.flexify.admin.dto;
 
 import java.time.LocalDateTime;
 
+import com.flexify.admin.entities.Status;
+
 public class MemberListDTO {
 	private Integer uid;
     private String uname;
@@ -9,7 +11,7 @@ public class MemberListDTO {
     private String lname;
     private String contact;
     private LocalDateTime joinDate;
-    private String status;
+    private Status status;
 	public Integer getUid() {
 		return uid;
 	}
@@ -46,12 +48,13 @@ public class MemberListDTO {
 	public void setJoinDate(LocalDateTime joinDate) {
 		this.joinDate = joinDate;
 	}
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
+
     
     
 }

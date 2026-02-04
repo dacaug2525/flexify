@@ -23,7 +23,7 @@ const AdminLayout = () => {
     {
       name: "Trainer Assignments",
       icon: <FaExchangeAlt />,
-      path: "/admin/assignments/assign-trainer",
+      path: "/admin/trainerassignment",
     },
 
     { name: "Plans", icon: <FaDumbbell />, path: "/admin/plans" },
@@ -42,7 +42,7 @@ const AdminLayout = () => {
 
         {/* ================= SIDEBAR ================= */}
         <div className="col-md-3 col-lg-2 bg-dark text-white p-3">
-          <h4 className="text-center mb-4 fw-bold">Admin Panel</h4>
+          <h4 className="text-center mb-4 fw-bold">Admin</h4>
 
           <ul className="nav nav-pills flex-column gap-2">
             {menuItems.map((item) => (

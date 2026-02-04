@@ -1,27 +1,28 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Register from "../common/Register";
+import { FaUsers } from "react-icons/fa";
 
 const Members = () => {
   const [members, setMembers] = useState([]);
   const [showRegister, setShowRegister] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  /* ================= FETCH MEMBERS LIST ================= */
-  useEffect(() => {
-    fetchMembers();
-  }, []);
-
+  /* ================= FETCH MEMBERS (FROM members TABLE) ================= */
   const fetchMembers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/members/list"
+        "http://localhost:8081/flexify/admin/allmembers/3"
       );
-      setMembers(res.data);   // ← all 5 members will come here
+      setMembers(res.data);
     } catch (err) {
       console.error("Error fetching members", err);
     }
   };
+
+  useEffect(() => {
+    fetchMembers();
+  }, []);
 
   /* ================= FETCH MEMBER DETAILS ================= */
   const viewDetails = async (uid) => {
@@ -39,7 +40,9 @@ const Members = () => {
     <>
       {/* ================= HEADER ================= */}
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h3 className="fw-bold">Members</h3>
+        <h3 className="fw-bold"
+         style={{ color: "#181d25", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <FaUsers size={24} /> Fitness Members</h3>
 
         {!showRegister && !selected && (
           <button
@@ -51,7 +54,7 @@ const Members = () => {
         )}
       </div>
 
-      {/* ================= REGISTER ================= */}
+      {/* ================= REGISTER (USER + MEMBER DETAILS) ================= */}
       {showRegister && (
         <>
           <button
@@ -60,7 +63,13 @@ const Members = () => {
           >
             ← Back to Members
           </button>
-          <Register />
+
+          <Register
+            onSuccess={() => {
+              fetchMembers();
+              setShowRegister(false);
+            }}
+          />
         </>
       )}
 
@@ -74,8 +83,6 @@ const Members = () => {
                   <th>Username</th>
                   <th>Name</th>
                   <th>Contact</th>
-                  <th>Join Date</th>
-                  <th>Status</th>
                   <th className="text-center">Action</th>
                 </tr>
               </thead>
@@ -86,18 +93,6 @@ const Members = () => {
                     <td className="fw-semibold">{m.uname}</td>
                     <td>{m.fname} {m.lname}</td>
                     <td>{m.contact}</td>
-                    <td>{m.joinDate?.split("T")[0]}</td>
-                    <td>
-                      <span
-                        className={`badge rounded-pill ${
-                          m.status === "active"
-                            ? "bg-success"
-                            : "bg-secondary"
-                        }`}
-                      >
-                        {m.status}
-                      </span>
-                    </td>
                     <td className="text-center">
                       <button
                         className="btn btn-sm btn-outline-primary"
@@ -138,10 +133,10 @@ const Members = () => {
             </div>
 
             <div className="card-body row g-4">
-              <div className="col-md-6"><b>Member ID:</b> {selected.mid}</div>
-              <div className="col-md-6"><b>Email:</b> {selected.email}</div>
-              <div className="col-md-6"><b>Gender:</b> {selected.gender}</div>
+              <div className="col-md-6"><b>Member ID:</b> {selected.uid}</div>
+              <div className="col-md-6"><b>Status:</b> {selected.status}</div>
               <div className="col-md-6"><b>DOB:</b> {selected.dob?.split("T")[0]}</div>
+              <div className="col-md-6"><b>Join Date:</b> {selected.joinDate?.split("T")[0]}</div>
               <div className="col-md-6"><b>Height:</b> {selected.height} cm</div>
               <div className="col-md-6"><b>Weight:</b> {selected.weight} kg</div>
               <div className="col-md-12"><b>Address:</b> {selected.address}</div>

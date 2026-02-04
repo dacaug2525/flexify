@@ -15,12 +15,12 @@ public class PlanTraining {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ptid;
 
-    @Column(nullable = false)
+    @Column(name="tr_id",nullable = false)
     private Integer trId;
 
-    @Column(nullable = false)
+    @Column(name="plan_id", nullable = false)
     private Integer planId;
-
+  
 	public Integer getPtid() {
 		return ptid;
 	}

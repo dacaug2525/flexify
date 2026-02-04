@@ -1,7 +1,6 @@
 package com.flexify.admin.entities;
 
 import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +24,7 @@ public class Trainer {
 
     @Column(name = "uid", nullable = false)
     private Integer uid;          // FK from user table (auth service)
-
+    
 	public Trainer() {
 		super();
 		// TODO Auto-generated constructor stub

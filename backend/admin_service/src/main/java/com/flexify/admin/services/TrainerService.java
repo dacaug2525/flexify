@@ -1,5 +1,6 @@
 package com.flexify.admin.services;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,6 +134,11 @@ public class TrainerService {
         return dto;
     }
 
-
+    public void updateSalary(Integer tid, BigDecimal salary) {
+        Trainer trainer = trainerRepo.findById(tid)
+                .orElseThrow(() -> new RuntimeException("Trainer not found"));
+        trainer.setSalary(salary);
+        trainerRepo.save(trainer);
+    }
 	    
 }

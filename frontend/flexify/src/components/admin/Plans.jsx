@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  FaPlus, FaEdit, FaTrash, FaEye, FaTimes
-} from "react-icons/fa";
+import { FaPlus, FaEdit, FaTrash, FaEye, FaTimes } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "../css/plans.css";
 
@@ -20,6 +18,8 @@ const Plans = () => {
     description: "",
     disId: ""
   });
+
+  const [errors, setErrors] = useState({}); // <-- Inline validation errors
 
   /* ================= FETCH PLANS ================= */
   const fetchPlans = async () => {
@@ -58,6 +58,7 @@ const Plans = () => {
       description: "",
       disId: ""
     });
+    setErrors({});
     setShowModal(true);
   };
 
@@ -71,21 +72,25 @@ const Plans = () => {
       disId: plan.discount ? plan.discount.disId.toString() : "",
       planId: plan.planId
     });
+    setErrors({});
     setShowModal(true);
   };
 
+  /* ================= SUBMIT PLAN ================= */
   const submitPlan = async () => {
-    try {
-      if (!formData.disId) {
-        Swal.fire({
-          icon: "warning",
-          title: "Discount Required",
-          text: "Please select a discount before submitting the plan.",
-          confirmButtonColor: "#ffc107"
-        });
-        return;
-      }
+    // Clear previous errors
+    const newErrors = {};
+    if (!formData.planName.trim()) newErrors.planName = "This field is required";
+    if (!formData.planDuration) newErrors.planDuration = "This field is required";
+    if (!formData.fees) newErrors.fees = "This field is required";
+    if (!formData.disId) newErrors.disId = "This field is required";
 
+    setErrors(newErrors);
+
+    // Stop submission if there are errors
+    if (Object.keys(newErrors).length > 0) return;
+
+    try {
       const payload = {
         planName: formData.planName,
         planDuration: Number(formData.planDuration),
@@ -99,7 +104,6 @@ const Plans = () => {
           `http://localhost:8081/flexify/admin/plans/${formData.planId}`,
           payload
         );
-
         Swal.fire({
           icon: "success",
           title: "Plan Updated",
@@ -111,7 +115,6 @@ const Plans = () => {
           "http://localhost:8081/flexify/admin/plans/create",
           payload
         );
-
         Swal.fire({
           icon: "success",
           title: "Plan Created",
@@ -138,14 +141,12 @@ const Plans = () => {
       await axios.delete(
         `http://localhost:8081/flexify/admin/plans/delete/${planId}`
       );
-
       Swal.fire({
         icon: "success",
         title: "Plan Deleted",
         text: "The plan has been deleted successfully.",
         confirmButtonColor: "#dc3545"
       });
-
       fetchPlans();
     } catch (err) {
       Swal.fire({
@@ -254,42 +255,63 @@ const Plans = () => {
             width: 450,
             background: "#fff",
             borderRadius: 10,
-            padding: 25,
+            padding: 15,       // reduced padding
             boxShadow: "0 8px 20px rgba(0,0,0,0.25)"
           }}>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5>{isEdit ? "Edit Plan" : "Create Plan"}</h5>
+            <div className="d-flex justify-content-between align-items-center mb-2"> {/* smaller margin */}
+              <h5 style={{ fontSize: "1rem" }}>{isEdit ? "Edit Plan" : "Create Plan"}</h5>
               <FaTimes style={{ cursor: "pointer" }} onClick={() => setShowModal(false)} />
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Plan Name</label>
-              <input className="form-control" value={formData.planName}
-                onChange={(e) => setFormData({ ...formData, planName: e.target.value })} />
+            <div className="mb-2"> {/* smaller margin */}
+              <label className="form-label" style={{ fontSize: "0.85rem" }}>Plan Name</label>
+              <input
+                className={`form-control form-control-sm ${errors.planName ? "is-invalid" : ""}`}
+                value={formData.planName}
+                onChange={(e) => setFormData({ ...formData, planName: e.target.value })}
+              />
+              {errors.planName && <div className="invalid-feedback">{errors.planName}</div>}
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Duration (Months)</label>
-              <input type="number" className="form-control" value={formData.planDuration}
-                onChange={(e) => setFormData({ ...formData, planDuration: e.target.value })} />
+            <div className="mb-2">
+              <label className="form-label" style={{ fontSize: "0.85rem" }}>Duration (Months)</label>
+              <input
+                type="number"
+                className={`form-control form-control-sm ${errors.planDuration ? "is-invalid" : ""}`}
+                value={formData.planDuration}
+                onChange={(e) => setFormData({ ...formData, planDuration: e.target.value })}
+              />
+              {errors.planDuration && <div className="invalid-feedback">{errors.planDuration}</div>}
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Fees (₹)</label>
-              <input type="number" className="form-control" value={formData.fees}
-                onChange={(e) => setFormData({ ...formData, fees: e.target.value })} />
+            <div className="mb-2">
+              <label className="form-label" style={{ fontSize: "0.85rem" }}>Fees (₹)</label>
+              <input
+                type="number"
+                className={`form-control form-control-sm ${errors.fees ? "is-invalid" : ""}`}
+                value={formData.fees}
+                onChange={(e) => setFormData({ ...formData, fees: e.target.value })}
+              />
+              {errors.fees && <div className="invalid-feedback">{errors.fees}</div>}
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Description</label>
-              <textarea className="form-control" rows="3" value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
+            <div className="mb-2">
+              <label className="form-label" style={{ fontSize: "0.85rem" }}>Description</label>
+              <textarea
+                className="form-control form-control-sm"
+                rows="2"       // reduced rows
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              />
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Discount</label>
-              <select className="form-select" value={formData.disId}
-                onChange={(e) => setFormData({ ...formData, disId: e.target.value })}>
+            <div className="mb-2">
+              <label className="form-label" style={{ fontSize: "0.85rem" }}>Discount</label>
+              <select
+                className={`form-select form-select-sm ${errors.disId ? "is-invalid" : ""}`}
+                value={formData.disId}
+                onChange={(e) => setFormData({ ...formData, disId: e.target.value })}
+              >
                 <option value="">Select Discount</option>
                 {discounts.map((d) => (
                   <option key={d.disId} value={d.disId.toString()}>
@@ -297,17 +319,19 @@ const Plans = () => {
                   </option>
                 ))}
               </select>
+              {errors.disId && <div className="invalid-feedback">{errors.disId}</div>}
             </div>
 
-            <div className="text-end">
-              <button className="btn btn-secondary me-2" onClick={() => setShowModal(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={submitPlan}>
+            <div className="text-end mt-1"> {/* smaller margin */}
+              <button className="btn btn-secondary btn-sm me-2" onClick={() => setShowModal(false)}>Cancel</button>
+              <button className="btn btn-primary btn-sm" onClick={submitPlan}>
                 {isEdit ? "Update" : "Create"}
               </button>
             </div>
           </div>
         </div>
       )}
+
     </div>
   );
 };

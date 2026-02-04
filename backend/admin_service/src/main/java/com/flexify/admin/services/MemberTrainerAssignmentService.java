@@ -1,93 +1,62 @@
 package com.flexify.admin.services;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.flexify.admin.dto.AssignTrainerRequestDTO;
-import com.flexify.admin.dto.AssignTrainerResponseDTO;
-import com.flexify.admin.dto.AssignmentViewDTO;
-import com.flexify.admin.entities.Member;
+import com.flexify.admin.dto.AssignmentDTO;
+
 import com.flexify.admin.entities.MemberTrainerAssignment;
-import com.flexify.admin.entities.Trainer;
-import com.flexify.admin.repositries.MemberRepository;
+import com.flexify.admin.entities.UserEntity;
 import com.flexify.admin.repositries.MemberTrainerAssignmentRepository;
-import com.flexify.admin.repositries.TrainerRepository;
+import com.flexify.admin.repositries.UserRepository;
 
 @Service
 public class MemberTrainerAssignmentService {
 	
-	@Autowired
-    private MemberTrainerAssignmentRepository assignmentRepo;
+	 @Autowired
+	    private MemberTrainerAssignmentRepository assignmentRepo;
 
-    @Autowired
-    private TrainerRepository trainerRepo;
+	 @Autowired
+	 private UserRepository userRepo;
+	 
+	    public MemberTrainerAssignment assignTrainer(Integer mid, Integer tid) throws Exception {
+	        // Check if assignment already exists
+	        if (assignmentRepo.existsByMidAndTid(mid, tid)) {
+	            throw new Exception("This member is already assigned to this trainer");
+	        }
 
-    @Autowired
-    private MemberRepository memberRepo;
+	        MemberTrainerAssignment assignment = new MemberTrainerAssignment();
+	        assignment.setMid(mid);
+	        assignment.setTid(tid);
+	        assignment.setAssignDate(LocalDateTime.now());
 
-    public AssignTrainerResponseDTO assignTrainerToMember(
-            AssignTrainerRequestDTO dto) {
-
-        // 1️⃣ Validate trainer exists
-        Trainer trainer = trainerRepo.findById(dto.getTid())
-                .orElseThrow(() ->
-                        new RuntimeException("Trainer not found"));
-
-        // 2️⃣ Validate member exists
-        Member member = memberRepo.findById(dto.getMid())
-                .orElseThrow(() ->
-                        new RuntimeException("Member not found"));
-
-        // 3️⃣ Check if member already has a trainer
-        assignmentRepo.findByMid(dto.getMid())
-                .ifPresent(a -> {
-                    throw new RuntimeException(
-                        "Trainer already assigned to this member");
-                });
-
-        // 4️⃣ Create assignment
-        MemberTrainerAssignment assignment =
-                new MemberTrainerAssignment();
-
-        assignment.setTid(dto.getTid());
-        assignment.setMid(dto.getMid());
-        assignment.setAssignDate(LocalDateTime.now());
-
-        MemberTrainerAssignment saved =
-                assignmentRepo.save(assignment);
-
-        // 5️⃣ Build response
-        AssignTrainerResponseDTO response =
-                new AssignTrainerResponseDTO();
-
-        response.setAssignmentId(saved.getAssignmentId());
-        response.setTid(saved.getTid());
-        response.setMid(saved.getMid());
-        response.setAssignDate(saved.getAssignDate());
-
-        return response;
-    }
+	        return assignmentRepo.save(assignment);
+	    }
+	    
+	    
     
+	    public List<AssignmentDTO> getAllAssignments() {
+	        List<MemberTrainerAssignment> assignments = assignmentRepo.findAll();
 
-    public List<AssignmentViewDTO> getAllAssignments() {
+	        return assignments.stream().map(a -> {
+	            UserEntity member = userRepo.findById(a.getMid()).orElse(null);
+	            UserEntity trainer = userRepo.findById(a.getTid()).orElse(null);
 
-        List<MemberTrainerAssignment> list = assignmentRepo.findAll();
-        List<AssignmentViewDTO> result = new ArrayList<>();
+	            String memberName = member != null ? member.getFname() + " " + member.getLname() : "N/A";
+	            String trainerName = trainer != null ? trainer.getFname() + " " + trainer.getLname() : "N/A";
 
-        for (MemberTrainerAssignment a : list) {
-            AssignmentViewDTO dto = new AssignmentViewDTO();
-            dto.setAssignmentId(a.getAssignmentId());
-            dto.setMid(a.getMid());
-            dto.setTid(a.getTid());
-            dto.setAssignDate(a.getAssignDate());
-
-            result.add(dto);
-        }
-
-        return result;
-    }
+	            return new AssignmentDTO(
+	                    a.getAssignmentId(),
+	                    a.getMid(),
+	                    a.getTid(),
+	                    memberName,
+	                    trainerName,
+	                    a.getAssignDate()
+	            );
+	        }).collect(Collectors.toList());
+	    }
 }

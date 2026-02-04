@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.flexify.admin.entities.Plan;
+import com.flexify.admin.entities.PlanTraining;
 
 @Repository
 public interface PlanRepository extends JpaRepository<Plan, Integer> {
@@ -28,5 +29,8 @@ public interface PlanRepository extends JpaRepository<Plan, Integer> {
 		        """, nativeQuery = true)
 	 
 	List<Object[]> getPlanDetails(@Param("planId") Integer planId);
-    
+	
+	
+	List<PlanTraining> findByPlanId(int planId);
+   
 }

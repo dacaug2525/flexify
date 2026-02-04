@@ -10,4 +10,6 @@ import com.flexify.admin.entities.TrainerSpecialization;
 @Repository
 public interface TrainerSpecializationRepository extends JpaRepository<TrainerSpecialization, Integer> {
 	 List<TrainerSpecialization> findByTid(Integer tid);
+
+	 List<TrainerSpecialization> findByTrId(Integer trId);
 }

@@ -20,6 +20,7 @@ const TrainerAssignment = () => {
     fetchAssignments();
   }, []);
 
+  // Fetch all members
   const fetchMembers = async () => {
     try {
       const res = await axios.get(
@@ -31,6 +32,7 @@ const TrainerAssignment = () => {
     }
   };
 
+  // Fetch all trainers
   const fetchTrainers = async () => {
     try {
       const res = await axios.get(
@@ -42,6 +44,7 @@ const TrainerAssignment = () => {
     }
   };
 
+  // Fetch existing assignments
   const fetchAssignments = async () => {
     try {
       const res = await axios.get(
@@ -53,6 +56,7 @@ const TrainerAssignment = () => {
     }
   };
 
+  // Handle assign trainer
   const handleAssign = async () => {
     setError("");
     setSuccess("");
@@ -72,12 +76,14 @@ const TrainerAssignment = () => {
         }
       );
 
-      setSuccess("Trainer assigned successfully");
+      setSuccess("Trainer assigned successfully!");
       setSelectedMember("");
       setSelectedTrainer("");
-      fetchAssignments();
+      fetchAssignments(); // Refresh assignment list
     } catch (err) {
-      setError("Assignment failed. Member may already have a trainer.");
+      setError(
+        err.response?.data || "Assignment failed. Member may already have a trainer."
+      );
     } finally {
       setLoading(false);
     }
@@ -86,15 +92,12 @@ const TrainerAssignment = () => {
   return (
     <div className="container-fluid">
 
-      {/* ================= HEADER ================= */}
+      {/* HEADER */}
       <div className="mb-4">
         <h3 className="fw-bold mb-1">Trainer Assignments</h3>
-        <small className="text-muted">
-          Assign trainers to members and manage relationships
-        </small>
       </div>
 
-      {/* ================= ASSIGN FORM ================= */}
+      {/* ASSIGN FORM */}
       <div className="card shadow-sm border-0 mb-4">
         <div className="card-header bg-dark text-white fw-semibold">
           Assign Trainer
@@ -103,7 +106,7 @@ const TrainerAssignment = () => {
         <div className="card-body">
           <div className="row g-4 align-items-end">
 
-            {/* MEMBER */}
+            {/* MEMBER SELECT */}
             <div className="col-md-5">
               <label className="form-label fw-semibold">
                 <FaUsers className="me-2" />
@@ -123,7 +126,7 @@ const TrainerAssignment = () => {
               </select>
             </div>
 
-            {/* TRAINER */}
+            {/* TRAINER SELECT */}
             <div className="col-md-5">
               <label className="form-label fw-semibold">
                 <FaUserTie className="me-2" />
@@ -143,7 +146,7 @@ const TrainerAssignment = () => {
               </select>
             </div>
 
-            {/* BUTTON */}
+            {/* ASSIGN BUTTON */}
             <div className="col-md-2 d-grid">
               <button
                 className="btn btn-success fw-semibold"
@@ -151,25 +154,22 @@ const TrainerAssignment = () => {
                 disabled={loading}
               >
                 <FaCheckCircle className="me-1" />
-                Assign
+                {loading ? "Assigning..." : "Assign"}
               </button>
             </div>
           </div>
 
-          {/* STATUS */}
+          {/* STATUS MESSAGES */}
           {error && <div className="alert alert-danger mt-3">{error}</div>}
-          {success && (
-            <div className="alert alert-success mt-3">{success}</div>
-          )}
+          {success && <div className="alert alert-success mt-3">{success}</div>}
         </div>
       </div>
 
-      {/* ================= ASSIGNMENT LIST ================= */}
+      {/* ASSIGNMENTS LIST */}
       <div className="card shadow-sm border-0">
         <div className="card-header bg-light fw-semibold">
           Current Assignments
         </div>
-
         <div className="table-responsive">
           <table className="table table-hover align-middle mb-0">
             <thead className="table-dark">
@@ -180,17 +180,15 @@ const TrainerAssignment = () => {
               </tr>
             </thead>
             <tbody>
-              {assignments.map((a) => (
-                <tr key={a.assignmentId}>
-                  <td>{a.memberName}</td>
-                  <td>{a.trainerName}</td>
-                  <td>
-                    {new Date(a.assignDate).toLocaleDateString()}
-                  </td>
-                </tr>
-              ))}
-
-              {assignments.length === 0 && (
+              {assignments.length > 0 ? (
+                assignments.map((a) => (
+                  <tr key={a.assignmentId}>
+                    <td>{a.memberName}</td>
+                    <td>{a.trainerName}</td>
+                    <td>{new Date(a.assignDate).toLocaleDateString()}</td>
+                  </tr>
+                ))
+              ) : (
                 <tr>
                   <td colSpan="3" className="text-center text-muted py-4">
                     No assignments found
@@ -201,7 +199,6 @@ const TrainerAssignment = () => {
           </table>
         </div>
       </div>
-
     </div>
   );
 };

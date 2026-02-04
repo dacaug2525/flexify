@@ -11,9 +11,20 @@ import com.flexify.admin.entities.MemberTrainerAssignment;
 @Repository
 public interface MemberTrainerAssignmentRepository extends JpaRepository<MemberTrainerAssignment, Integer> {
 
-    // Check if trainer already assigned to member
-    Optional<MemberTrainerAssignment> findByMid(Integer mid);
 
-    // Optional: list by trainer
+	// Check same trainer already assigned to member
+    Optional<MemberTrainerAssignment> findByMidAndTid(
+            Integer mid,
+            Integer tid
+    );
+
+    // List all trainers for a member
+    List<MemberTrainerAssignment> findByMid(Integer mid);
+
+    // List all members for a trainer
     List<MemberTrainerAssignment> findByTid(Integer tid);
+    
+ // Optional: Check if member already has trainer
+    boolean existsByMidAndTid(Integer mid, Integer tid);
+
 }

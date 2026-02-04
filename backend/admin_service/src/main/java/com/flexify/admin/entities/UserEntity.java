@@ -1,5 +1,6 @@
 package com.flexify.admin.entities;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class UserEntity {
     private String gender;
 
     private Integer rid;   // role id only
-
+    
 	public Integer getUid() {
 		return uid;
 	}
