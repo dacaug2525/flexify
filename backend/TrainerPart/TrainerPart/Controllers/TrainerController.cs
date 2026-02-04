@@ -93,6 +93,7 @@ namespace TrainerPart.Controllers
                     Height = m.Height,
                     Weight = m.Weight,
                     Status = m.Status
+
                 };
 
             return Ok(members.ToList());

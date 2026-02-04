@@ -1,6 +1,4 @@
-﻿using TrainerPart.Models;
-
-namespace TrainerPart.DTO_s
+﻿namespace TrainerPart.DTO_s
 {
     public class MemberAttendanceDto
     {

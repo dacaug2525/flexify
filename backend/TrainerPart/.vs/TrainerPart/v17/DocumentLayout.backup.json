@@ -7,12 +7,9 @@
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\trainerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\trainerdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\trainerdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +18,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\trainerdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\trainerdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,6 +66,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\workoutschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\workoutschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+>>>>>>> 9b02340c4510afe5c3eb799c3330f1e3fd2b9456
     },
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\workoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -75,6 +88,7 @@
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\assignedmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\assignedmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -117,6 +131,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\progresscreateupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\progresscreateupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\memberattendence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\memberattendence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\memberattendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\memberattendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\lenovo\\desktop\\project_flexify\\flexify\\backend\\trainerpart\\trainerpart\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+>>>>>>> 9b02340c4510afe5c3eb799c3330f1e3fd2b9456
     }
   ],
   "DocumentGroupContainers": [
@@ -126,6 +152,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 7,
           "Children": [
             {
@@ -135,20 +162,101 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+=======
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T07:32:34.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AttendanceController.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\AttendanceController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\AttendanceController.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\AttendanceController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\AttendanceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T07:30:25.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MemberAttendence.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberAttendence.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberAttendence.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberAttendence.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\MemberAttendence.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T07:15:40.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TrainerPart\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TrainerPart\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-02T15:40:58.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\appsettings.json",
+              "RelativeDocumentMoniker": "TrainerPart\\appsettings.json",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\appsettings.json",
+              "RelativeToolTip": "TrainerPart\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-02T15:35:19.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrainerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainerDbContext.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\TrainerDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T15:34:49.945Z",
+              "EditorCaption": ""
+>>>>>>> 9b02340c4510afe5c3eb799c3330f1e3fd2b9456
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
+<<<<<<< HEAD
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "TrainerController.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\TrainerController.cs",
               "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
               "RelativeToolTip": "TrainerPart\\Controllers\\TrainerController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwCkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T02:12:51.298Z",
               "EditorCaption": ""
@@ -161,7 +269,7 @@
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\DashboardController.cs",
               "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\DashboardController.cs",
               "RelativeToolTip": "TrainerPart\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA1wBwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T08:14:42.805Z",
               "EditorCaption": ""
@@ -181,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\User.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\User.cs",
@@ -200,7 +308,7 @@
               "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainerDbContext.cs",
               "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
               "RelativeToolTip": "TrainerPart\\Models\\TrainerDbContext.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAIwKMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T02:25:09.512Z",
               "EditorCaption": ""
@@ -233,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TrainerDashboardDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerDashboardDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\TrainerDashboardDto.cs",
@@ -385,10 +493,27 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T09:02:43.401Z",
+=======
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Program.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Program.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Program.cs",
+              "RelativeToolTip": "TrainerPart\\Program.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAABQAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T15:34:24.848Z",
+>>>>>>> 9b02340c4510afe5c3eb799c3330f1e3fd2b9456
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 19,
               "Title": "TrainerProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
@@ -509,6 +634,18 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T09:02:31.604Z"
+=======
+              "DocumentIndex": 6,
+              "Title": "MemberAttendanceDto.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\project_flexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "RelativeToolTip": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T07:15:51.061Z",
+              "EditorCaption": ""
+>>>>>>> 9b02340c4510afe5c3eb799c3330f1e3fd2b9456
             }
           ]
         }

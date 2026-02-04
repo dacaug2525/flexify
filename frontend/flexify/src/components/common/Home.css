@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-image 1.2s ease-in-out;
 }
 
 /* ============================= */
@@ -30,28 +29,7 @@
   font-weight: 900;
   letter-spacing: 2px;
   margin-bottom: 20px;
-
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    #00e5ff,
-    #8b5cf6,
-    #00e5ff
-  );
-  background-size: 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  animation: brandGlow 4s ease infinite;
-}
-
-/* same glow as login */
-@keyframes brandGlow {
-  0% { background-position: 0%; }
-  50% { background-position: 100%; }
-  100% { background-position: 0%; }
+  color: #ffffff;
 }
 
 /* ============================= */
@@ -61,9 +39,6 @@
   font-size: 1.25rem;
   color: #cfd8ff;
   margin-bottom: 30px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards;
-  animation-delay: 0.2s;
 }
 
 /* ============================= */
@@ -79,15 +54,7 @@
   margin-bottom: 12px;
   font-size: 1.05rem;
   color: #e5e7eb;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards;
 }
-
-.home-features li:nth-child(1) { animation-delay: 0.4s; }
-.home-features li:nth-child(2) { animation-delay: 0.6s; }
-.home-features li:nth-child(3) { animation-delay: 0.8s; }
-.home-features li:nth-child(4) { animation-delay: 1s; }
-.home-features li:nth-child(5) { animation-delay: 1.2s; }
 
 /* ============================= */
 /* FOOTER TEXT */
@@ -95,23 +62,6 @@
 .home-footer-text {
   font-size: 0.95rem;
   color: #9ca3af;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards;
-  animation-delay: 1.4s;
-}
-
-/* ============================= */
-/* ANIMATION */
-/* ============================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ============================= */

@@ -149,7 +149,7 @@ const MakePayment = () => {
         }
 
         .card-heading {
-          color: #2563eb;
+          color:#000103;
           font-weight: 600;
           margin-bottom: 20px;
         }

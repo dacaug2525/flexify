@@ -42,7 +42,7 @@ public class UserService {
 	    User user = new User();
 	    user.setUname(dto.getUname());
 	    
-	    user.setPassword(passwordEncoder.encode(dto.getPassword())); // later encrypt
+	    user.setPassword(dto.getPassword()); // later encrypt
 	    user.setFname(dto.getFname());
 	    user.setLname(dto.getLname());
 	    user.setEmail(dto.getEmail());

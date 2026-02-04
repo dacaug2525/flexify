@@ -6,11 +6,9 @@ const Attendance = () => {
   const { member } = useSelector((state) => state.member);
   const mid = member?.mid;
 
-  const [status, setStatus] = useState("PRESENT");
   const [history, setHistory] = useState([]);
   const [presentCount, setPresentCount] = useState(0);
   const [absentCount, setAbsentCount] = useState(0);
-  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   /* ===== TODAY DATE ===== */
@@ -58,32 +56,6 @@ const Attendance = () => {
     fetchCounts();
   }, [fetchHistory, fetchCounts]);
 
-  /* ================= MARK ATTENDANCE ================= */
-  const markAttendance = async () => {
-    setMessage("");
-    setError("");
-
-    if (!mid) {
-      setError("Member profile not available");
-      return;
-    }
-
-    try {
-      await axios.post("http://localhost:8083/flexify/member/attendence/mark", {
-        mid,
-        status,
-      });
-
-      setMessage("Attendance marked successfully ✅");
-      fetchHistory();
-      fetchCounts();
-    } catch (err) {
-      setError(
-        err.response?.data?.message || "Attendance already marked for today",
-      );
-    }
-  };
-
   return (
     <div className="overview-card">
       {/* ===== HEADING ===== */}
@@ -107,34 +79,8 @@ const Attendance = () => {
         📆 Today: <span>{today}</span>
       </div>
 
-      {/* ===== STATUS ===== */}
-      <div className="status-btns">
-        <button
-          className={`btn ${
-            status === "PRESENT" ? "btn-success" : "btn-outline-success"
-          }`}
-          onClick={() => setStatus("PRESENT")}
-        >
-          ✅ Present
-        </button>
-
-        <button
-          className={`btn ${
-            status === "ABSENT" ? "btn-danger" : "btn-outline-danger"
-          }`}
-          onClick={() => setStatus("ABSENT")}
-        >
-          ❌ Absent
-        </button>
-      </div>
-
-      <button className="btn btn-primary mb-3" onClick={markAttendance}>
-        Mark Attendance
-      </button>
-
-      {/* ===== FEEDBACK ===== */}
+      {/* ===== ERROR ===== */}
       {error && <div className="text-danger mb-2">{error}</div>}
-      {message && <div className="text-success mb-2">{message}</div>}
 
       {/* ===== HISTORY ===== */}
       <h5 className="history-heading">📜 Attendance History</h5>
@@ -168,7 +114,7 @@ const Attendance = () => {
       {/* ===== STYLES ===== */}
       <style>{`
         .attendance-heading {
-          color: #2563eb;
+          color: #000103;
           margin-bottom: 20px;
           font-weight: 600;
         }
@@ -214,12 +160,6 @@ const Attendance = () => {
 
         .today-box span {
           color: #2563eb;
-        }
-
-        .status-btns {
-          display: flex;
-          gap: 16px;
-          margin-bottom: 20px;
         }
 
         .history-heading {

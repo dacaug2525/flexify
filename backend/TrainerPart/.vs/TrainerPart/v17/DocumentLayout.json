@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\trainerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\membertrainerassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\membertrainerassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -107,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\trainingtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\models\\membertrainerassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\models\\membertrainerassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|c:\\users\\bhumika mahale\\onedrive\\desktop\\modifiedfinalcdacprojectflexify\\flexify\\backend\\trainerpart\\trainerpart\\dto\u0027s\\progressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57CDBA7-309A-43DD-8B76-92FE923DB74B}|TrainerPart\\TrainerPart.csproj|solutionrelative:trainerpart\\dto\u0027s\\progressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -126,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -143,19 +143,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TrainerController.cs",
-              "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
-              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\TrainerController.cs",
-              "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
-              "RelativeToolTip": "TrainerPart\\Controllers\\TrainerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:12:51.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\DashboardController.cs",
@@ -163,12 +150,11 @@
               "RelativeToolTip": "TrainerPart\\Controllers\\DashboardController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwBkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T08:14:42.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T08:14:42.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Trainer.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\Trainer.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\Trainer.cs",
@@ -176,12 +162,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\Trainer.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:09:52.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T02:09:52.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\User.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\User.cs",
@@ -189,8 +174,7 @@
               "RelativeToolTip": "TrainerPart\\Models\\User.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAuwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:10:39.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T02:10:39.065Z"
             },
             {
               "$type": "Document",
@@ -200,14 +184,14 @@
               "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainerDbContext.cs",
               "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainerDbContext.cs",
               "RelativeToolTip": "TrainerPart\\Models\\TrainerDbContext.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T02:25:09.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AttendanceController.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\AttendanceController.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\AttendanceController.cs",
@@ -215,12 +199,36 @@
               "RelativeToolTip": "TrainerPart\\Controllers\\AttendanceController.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T10:11:03.834Z",
+              "WhenOpened": "2026-02-03T10:11:03.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MemberTrainerAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberTrainerAssignment.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberTrainerAssignment.cs",
+              "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberTrainerAssignment.cs",
+              "RelativeToolTip": "TrainerPart\\Models\\MemberTrainerAssignment.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T02:09:41.637Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "TrainerPart\\Controllers\\TrainerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T02:12:51.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "MemberAttendanceDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
@@ -228,12 +236,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\MemberAttendanceDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T05:00:37.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T05:00:37.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TrainerDashboardDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerDashboardDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\TrainerDashboardDto.cs",
@@ -241,12 +248,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\TrainerDashboardDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T08:13:10.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T08:13:10.256Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "WorkoutController.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\WorkoutController.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\WorkoutController.cs",
@@ -254,12 +260,11 @@
               "RelativeToolTip": "TrainerPart\\Controllers\\WorkoutController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:13:10.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T02:13:10.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Member.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\Member.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\Member.cs",
@@ -267,12 +272,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\Member.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T09:02:47.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T09:02:47.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AttendanceStatus.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\AttendanceStatus.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\AttendanceStatus.cs",
@@ -280,12 +284,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\AttendanceStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T10:03:22.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T10:03:22.614Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MemberAttendence.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberAttendence.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberAttendence.cs",
@@ -293,12 +296,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\MemberAttendence.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T05:00:17.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T05:00:17.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MarkAttendanceDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\MarkAttendanceDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\MarkAttendanceDto.cs",
@@ -306,12 +308,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\MarkAttendanceDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T09:50:36.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T09:50:36.906Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "UpdateTrainerProfileDtocs.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\UpdateTrainerProfileDtocs.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\UpdateTrainerProfileDtocs.cs",
@@ -319,12 +320,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\UpdateTrainerProfileDtocs.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T09:06:55.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T09:06:55.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ProgressController.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Controllers\\ProgressController.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Controllers\\ProgressController.cs",
@@ -332,12 +332,11 @@
               "RelativeToolTip": "TrainerPart\\Controllers\\ProgressController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T10:12:50.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T10:12:50.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "AssignedMemberDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\AssignedMemberDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\AssignedMemberDto.cs",
@@ -345,12 +344,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\AssignedMemberDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T05:00:40.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T05:00:40.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "WorkoutSchedule.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\WorkoutSchedule.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\WorkoutSchedule.cs",
@@ -358,12 +356,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\WorkoutSchedule.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAmwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T09:02:59.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T09:02:59.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Program.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Program.cs",
@@ -371,12 +368,11 @@
               "RelativeToolTip": "TrainerPart\\Program.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAQwEUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T02:24:40.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T02:24:40.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "WorkoutDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
@@ -384,12 +380,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\WorkoutDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T09:02:43.401Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T09:02:43.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "TrainerProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
@@ -397,12 +392,11 @@
               "RelativeToolTip": "TrainerPart\\DTO\u0027s\\TrainerProfileDto.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAgwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T09:02:41.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T09:02:41.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\appsettings.json",
               "RelativeDocumentMoniker": "TrainerPart\\appsettings.json",
@@ -415,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "TrainerSpecialization.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainerSpecialization.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainerSpecialization.cs",
@@ -423,12 +417,11 @@
               "RelativeToolTip": "TrainerPart\\Models\\TrainerSpecialization.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:10:17.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T02:10:17.231Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "MemberProgress.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberProgress.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberProgress.cs",
@@ -440,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "AddUpdateWorkoutDto.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\DTO\u0027s\\AddUpdateWorkoutDto.cs",
               "RelativeDocumentMoniker": "TrainerPart\\DTO\u0027s\\AddUpdateWorkoutDto.cs",
@@ -452,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TrainerPart\\Properties\\launchSettings.json",
@@ -464,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "TrainingTable.cs",
               "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\TrainingTable.cs",
               "RelativeDocumentMoniker": "TrainerPart\\Models\\TrainingTable.cs",
@@ -473,18 +466,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T02:10:29.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "MemberTrainerAssignment.cs",
-              "DocumentMoniker": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberTrainerAssignment.cs",
-              "RelativeDocumentMoniker": "TrainerPart\\Models\\MemberTrainerAssignment.cs",
-              "ToolTip": "C:\\Users\\bhumika mahale\\OneDrive\\Desktop\\ModifiedFinalCDACProjectFlexify\\flexify\\backend\\TrainerPart\\TrainerPart\\Models\\MemberTrainerAssignment.cs",
-              "RelativeToolTip": "TrainerPart\\Models\\MemberTrainerAssignment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T02:09:41.637Z"
             },
             {
               "$type": "Document",
