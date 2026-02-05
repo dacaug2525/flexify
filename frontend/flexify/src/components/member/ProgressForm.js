@@ -21,7 +21,7 @@ const ProgressForm = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:8083/flexify/member/progress/${memberId}`,
+        `http://localhost:8080/member/progress/${memberId}`,
       );
       setHistory(res.data);
     } catch {
@@ -53,7 +53,7 @@ const ProgressForm = () => {
     setBmi(bmiValue);
 
     try {
-      await axios.post("http://localhost:8083/flexify/member/progress/add", {
+      await axios.post("http://localhost:8080/member/progress/add", {
         mid: memberId,
         weight: Number(weight),
         bmi: Number(bmiValue),

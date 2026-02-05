@@ -50,7 +50,7 @@ const DashboardHome = ({ setActive }) => {
     if (!member?.mid) return;
 
     axios
-      .get(`http://localhost:8083/flexify/member/membership/${member.mid}`)
+      .get(`http://localhost:8080/member/membership/${member.mid}`)
       .then((res) =>
         setActiveMembership(res.data.find((m) => m.status === "ACTIVE")),
       );
@@ -60,7 +60,7 @@ const DashboardHome = ({ setActive }) => {
     if (!member?.mid) return;
 
     axios
-      .get(`http://localhost:8083/flexify/member/progress/${member.mid}`)
+      .get(`http://localhost:8080/member/progress/${member.mid}`)
       .then((res) => {
         if (res.data.length > 0) {
           const last = res.data[res.data.length - 1];
@@ -76,10 +76,10 @@ const DashboardHome = ({ setActive }) => {
 
     Promise.all([
       axios.get(
-        `http://localhost:8083/flexify/member/attendence/count/${member.mid}/PRESENT`,
+        `http://localhost:8080/member/attendence/count/${member.mid}/PRESENT`,
       ),
       axios.get(
-        `http://localhost:8083/flexify/member/attendence/count/${member.mid}/ABSENT`,
+        `http://localhost:8080/member/attendence/count/${member.mid}/ABSENT`,
       ),
     ]).then(([p, a]) => {
       setPresentCount(p.data);

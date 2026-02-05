@@ -24,7 +24,7 @@ const Plans = () => {
   /* ================= FETCH PLANS ================= */
   const fetchPlans = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/flexify/admin/plans");
+      const res = await axios.get("http://localhost:8080/admin/plans");
       setPlans(res.data);
     } catch (err) {
       console.error("Error fetching plans:", err);
@@ -35,7 +35,7 @@ const Plans = () => {
   const fetchDiscounts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/discount/getAllDiscount"
+        "http://localhost:8080/admin/discount/getAllDiscount"
       );
       setDiscounts(res.data);
     } catch (err) {
@@ -101,7 +101,7 @@ const Plans = () => {
 
       if (isEdit) {
         await axios.put(
-          `http://localhost:8081/flexify/admin/plans/${formData.planId}`,
+          `http://localhost:8080/admin/plans/${formData.planId}`,
           payload
         );
         Swal.fire({
@@ -112,7 +112,7 @@ const Plans = () => {
         });
       } else {
         await axios.post(
-          "http://localhost:8081/flexify/admin/plans/create",
+          "http://localhost:8080/admin/plans/create",
           payload
         );
         Swal.fire({
@@ -139,7 +139,7 @@ const Plans = () => {
   const deletePlan = async (planId) => {
     try {
       await axios.delete(
-        `http://localhost:8081/flexify/admin/plans/delete/${planId}`
+        `http://localhost:8080/admin/plans/delete/${planId}`
       );
       Swal.fire({
         icon: "success",

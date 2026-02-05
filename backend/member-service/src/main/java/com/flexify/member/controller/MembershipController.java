@@ -10,8 +10,8 @@ import com.flexify.member.entities.Plan;
 import com.flexify.member.service.MembershipService;
 
 @RestController
-@RequestMapping("/flexify/member/membership")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins="http://localhost:3000")
 public class MembershipController {
 
 	
@@ -19,31 +19,31 @@ public class MembershipController {
 	    private MembershipService service;
 
 	    // Add Plan
-	    @PostMapping("/addplan")
+	    @PostMapping("/membership/addplan")
 	    public ResponseEntity<?> addPlan(@Valid @RequestBody PlanDTO dto) {
 	        return ResponseEntity.ok(service.addPlan(dto));
 	    }
 
 	    // Get All Plans
-	    @GetMapping("/plan")
+	    @GetMapping("/membership/plan")
 	    public ResponseEntity<List<Plan>> getAllPlans() {
 	        return ResponseEntity.ok(service.getAllPlans());
 	    }
 
 	    // Assign Membership to Member
-	    @PostMapping("/assign")
+	    @PostMapping("/membership/assign")
 	    public ResponseEntity<?> assignMembership(@Valid @RequestBody MemberMembershipDTO dto) {
 	        return ResponseEntity.ok(service.assignMembership(dto));
 	    }
 
 	    // Get Membership by Member ID
-	    @GetMapping("/{memberId}")
+	    @GetMapping("/membership/{memberId}")
 	    public ResponseEntity<?> getMemberMembership(@PathVariable Integer memberId) {
 	        return ResponseEntity.ok(service.getMemberMembership(memberId));
 	    }
 
 	    // Update Membership
-	    @PutMapping("/update/{id}")
+	    @PutMapping("/membership/update/{id}")
 	    public ResponseEntity<?> updateMembership(
 	            @PathVariable Integer id,
 	            @Valid @RequestBody MemberMembershipDTO dto) {
@@ -51,19 +51,19 @@ public class MembershipController {
 	    }
 
 	    // Delete Membership
-	    @DeleteMapping("/delete/{id}")
+	    @DeleteMapping("/membership/delete/{id}")
 	    public ResponseEntity<?> deleteMembership(@PathVariable Integer id) {
 	        service.deleteMembership(id);
 	        return ResponseEntity.ok("Membership deleted successfully");
 	    }
 	    
 	 // endpoint for detailed membership
-	    @GetMapping("/detailed/{memberId}")
+	    @GetMapping("/membership/detailed/{memberId}")
 	    public ResponseEntity<?> getMemberMembershipDetailed(@PathVariable Integer memberId) {
 	        return ResponseEntity.ok(service.getMemberMembershipDetailed(memberId));
 	    }
 
-	    @GetMapping("/plans/view")
+	    @GetMapping("/membership/plans/view")
 	    public ResponseEntity<?> getAllPlansForMembers() {
 	        return ResponseEntity.ok(service.getAllPlansWithDetails());
 	    }

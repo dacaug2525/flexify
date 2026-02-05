@@ -12,8 +12,8 @@ import com.flexify.member.entities.HealthCondition;
 import com.flexify.member.repository.HealthConditionRepository;
 
 @RestController
-@RequestMapping("/flexify/health")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class HealthController {
 	
 	
@@ -21,7 +21,7 @@ public class HealthController {
 	    @Autowired
 	    private HealthConditionRepository repo;
 
-	    @GetMapping("/all")
+	    @GetMapping("/health/all")
 	    public List<HealthCondition> getAll() {
 	        return repo.findAll();
 	    }

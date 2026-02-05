@@ -9,7 +9,7 @@ const Feedbacks = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/flexify/admin/feedbacks")
+      .get("http://localhost:8080/admin/feedbacks/allfeedbacks")
       .then((res) => {
         setFeedbacks(res.data);
         setLoading(false);

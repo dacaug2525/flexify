@@ -15,7 +15,7 @@ const RenewMembership = () => {
     if (!member?.mid) return;
 
     axios
-      .get(`http://localhost:8083/flexify/member/membership/${member.mid}`)
+      .get(`http://localhost:8080/member/membership/${member.mid}`)
       .then((res) => {
         const active = res.data.find((m) => m.status === "ACTIVE");
         setActivePlan(active || null);

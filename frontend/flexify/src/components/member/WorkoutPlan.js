@@ -16,7 +16,7 @@ const WorkoutPlan = () => {
     const fetchWorkouts = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8083/flexify/member/workout/${memberId}`,
+          `http://localhost:8080/member/workout/${memberId}`,
         );
         setWorkouts(res.data);
       } catch {

@@ -18,14 +18,14 @@ import com.flexify.admin.services.MemberTrainerAssignmentService;
 import com.flexify.admin.dto.AssignmentDTO;
 
 @RestController
-@RequestMapping("/flexify/admin/assignments")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/admin")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MemberTrainerAssignmentController {
 
 	@Autowired
     private MemberTrainerAssignmentService assignmentService;
 
-    @PostMapping("/assign-trainer")
+    @PostMapping("/assignments/assign-trainer")
     public ResponseEntity<?> assignTrainer(@RequestBody AssignmentRequest request) {
         try {
             MemberTrainerAssignment assignment = assignmentService.assignTrainer(request.getMid(), request.getTid());
@@ -46,7 +46,7 @@ public class MemberTrainerAssignmentController {
         public void setTid(Integer tid) { this.tid = tid; }
     }
     // List all assignments
-    @GetMapping("/list")
+    @GetMapping("/assignments/list")
     public List<AssignmentDTO> listAssignments() {
         return assignmentService.getAllAssignments();
     }

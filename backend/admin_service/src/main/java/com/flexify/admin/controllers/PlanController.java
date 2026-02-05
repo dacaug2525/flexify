@@ -21,14 +21,14 @@ import com.flexify.admin.entities.PlanDiscount;
 import com.flexify.admin.services.PlanDiscountService;
 import com.flexify.admin.services.PlanService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/flexify/admin/plans")
+@RequestMapping("/admin")
 public class PlanController {
 	@Autowired
 	private PlanService planService;
 
-	 @GetMapping
+	 @GetMapping("/plans")
 	    public List<Plan> getPlans() {
 	        return planService.getAllPlans();
 	   }
@@ -39,7 +39,7 @@ public class PlanController {
 	    private PlanDiscountService discountService;
 
 	    // Existing create plan
-	    @PostMapping("/create")
+	    @PostMapping("/plans/create")
 	    public ResponseEntity<String> createPlan(@RequestBody CreatePlanRequest dto) {
 	        try {
 	            planService.createMembershipPlan(dto);
@@ -50,25 +50,25 @@ public class PlanController {
 	    }
 
 	    // New endpoint to get all discounts
-	    @GetMapping("/discounts")
+	    @GetMapping("/plans/discounts")
 	    public ResponseEntity<List<PlanDiscount>> getAllDiscounts() {
 	        List<PlanDiscount> discounts = discountService.getAll();
 	        return ResponseEntity.ok(discounts);
 	    }
 	
 	
-	@GetMapping("/{planId}")
+	@GetMapping("/plans/{planId}")
 	public ResponseEntity<?> getPlan(@PathVariable Integer planId) {
 	    return ResponseEntity.ok(planService.getPlan(planId));
 	}
 	
-	@GetMapping("/{planId}/final-amount")
+	@GetMapping("/plans/{planId}/final-amount")
 	public ResponseEntity<?> getFinalAmount(@PathVariable Integer planId) {
 	    return ResponseEntity.ok(planService.getFinalAmount(planId));
 	}
 	
 	/* ================= UPDATE PLAN ================= */
-    @PutMapping("/{id}")
+    @PutMapping("/plans/{id}")
     public ResponseEntity<Plan> updatePlan(
             @PathVariable Integer id,
             @RequestBody PlanDTO dto) {
@@ -78,7 +78,7 @@ public class PlanController {
     }
 
     /* ================= DELETE PLAN ================= */
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/plans/delete/{id}")
     public ResponseEntity<String> deletePlan(@PathVariable Integer id) {
         try {
             // Check if plan is referenced in plan_training

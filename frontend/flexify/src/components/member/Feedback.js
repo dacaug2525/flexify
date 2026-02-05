@@ -18,7 +18,7 @@ const Feedback = () => {
     if (!mid) return;
 
     axios
-      .get(`http://localhost:8083/flexify/member/trainer/${mid}`)
+      .get(`http://localhost:8080/member/trainer/${mid}`)
       .then((res) => setTrainers(res.data))
       .catch(() => setError("Unable to load trainers"));
   }, [mid]);
@@ -44,7 +44,7 @@ const Feedback = () => {
     }
 
     try {
-      await axios.post("http://localhost:8083/flexify/member/feedback/add", {
+      await axios.post("http://localhost:8080/member/feedback/add", {
         mid: mid,
         tid: trainerId,
         rating: ratings[trainerId],

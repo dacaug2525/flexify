@@ -16,7 +16,7 @@ import com.flexify.admin.entities.MemberMembership;
 import com.flexify.admin.services.MemberMembershipService;
 
 @RestController
-@RequestMapping("/flexify/admin/memberships")
+@RequestMapping("/admin")
 public class MemberMembershipController {
 
 		@Autowired
@@ -27,25 +27,25 @@ public class MemberMembershipController {
 	    }
 
 	    // CREATE
-	    @PostMapping("/addMembership")
+	    @PostMapping("/memberships/addMembership")
 	    public MemberMembership add(@RequestBody MemberMembership m) {
 	        return service.addMembership(m);
 	    }
 
 	    // READ ALL
-	    @GetMapping("/getAll")
+	    @GetMapping("/memberships/getAll")
 	    public List<MemberMembership> getAll() {
 	        return service.getAllMemberships();
 	    }
 
 	    // READ BY ID
-	    @GetMapping("/getById/{id}")
+	    @GetMapping("/memberships/getById/{id}")
 	    public MemberMembership getById(@PathVariable Integer id) {
 	        return service.getMembershipById(id);
 	    }
 
 	    // UPDATE
-	    @PutMapping("/update/{id}")
+	    @PutMapping("/memberships/update/{id}")
 	    public MemberMembership update(
 	            @PathVariable Integer id,
 	            @RequestBody MemberMembership m) {
@@ -53,7 +53,7 @@ public class MemberMembershipController {
 	    }
 
 	    // DELETE
-	    @DeleteMapping("/delete/{id}")
+	    @DeleteMapping("/memberships/delete/{id}")
 	    public String delete(@PathVariable Integer id) {
 	    	service.deleteMembership(id);
 	    	return "Membership deleted successfully";

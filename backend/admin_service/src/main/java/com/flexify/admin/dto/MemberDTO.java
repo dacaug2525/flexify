@@ -2,14 +2,17 @@ package com.flexify.admin.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.flexify.admin.entities.Status;
 
 public class MemberDTO {
 	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	 private LocalDateTime dob;
 	 private Integer height;
 	 private Integer weight;
 	 private String address;
+	 @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	 private LocalDateTime joinDate;
 	 private Status status;
 	 private Integer uid;

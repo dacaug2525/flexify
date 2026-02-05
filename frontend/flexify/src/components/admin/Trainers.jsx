@@ -19,7 +19,7 @@ const Trainers = () => {
   const fetchTrainers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/alltrainers/2"
+        "http://localhost:8080/admin/alltrainers/2"
       );
       setTrainers(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
@@ -35,7 +35,7 @@ const Trainers = () => {
       setShowRegister(false);
       setLoadingDetails(true);
       const res = await axios.get(
-        `http://localhost:8081/flexify/admin/trainers/details/${uid}`
+        `http://localhost:8080/admin/trainers/details/${uid}`
       );
       setSelected(res.data);
       setSalary(res.data.salary); // initialize salary field
@@ -52,7 +52,7 @@ const Trainers = () => {
     try {
       setUpdating(true);
       await axios.put(
-        `http://localhost:8081/flexify/admin/trainers/update-salary/${selected.tid}`,
+        `http://localhost:8080/admin/trainers/update-salary/${selected.tid}`,
         { salary: Number(salary) }
       );
       setSuccessMsg("Salary updated successfully!");

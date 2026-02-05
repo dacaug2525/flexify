@@ -11,27 +11,27 @@ import com.flexify.member.service.AttendanceService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("flexify/member/attendence")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class AttendanceController {
 
     @Autowired
     private AttendanceService service;
 
     /* ================= MARK ================= */
-    @PostMapping("/mark")
+    @PostMapping("/attendance/mark")
     public ResponseEntity<?> mark(@Valid @RequestBody AttendanceRequestDTO dto) {
         return ResponseEntity.ok(service.markAttendance(dto));
     }
 
     /* ================= HISTORY ================= */
-    @GetMapping("/{mid}")
+    @GetMapping("/attendence/{mid}")
     public ResponseEntity<?> history(@PathVariable Integer mid) {
         return ResponseEntity.ok(service.getAttendanceHistory(mid));
     }
 
     /* ================= COUNT ================= */
-    @GetMapping("/count/{mid}/{status}")
+    @GetMapping("/attendence/count/{mid}/{status}")
     public ResponseEntity<?> count(
             @PathVariable Integer mid,
             @PathVariable MemberAttendance.Status status) {

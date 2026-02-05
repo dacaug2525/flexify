@@ -17,7 +17,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/flexify/login", {
+      const response = await axios.post("http://localhost:8080/auth/login", {
         email,
         password,
       });

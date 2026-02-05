@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +18,9 @@ import com.flexify.admin.dto.MemberDTO;
 import com.flexify.admin.entities.Member;
 import com.flexify.admin.services.MemberService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/flexify/admin/members")
+@RequestMapping("/admin")
 public class MemberController {
 	@Autowired
     private MemberService service;
@@ -64,26 +64,29 @@ public class MemberController {
     */
 	
 
-    @GetMapping("/list")
+    @GetMapping("/members/list")
     public List<Member> getMembers() {
         return service.getAllMembersForAdmin();
     }
 
     // MEMBER DETAILS
 	 // Fetch member by user id
-    @GetMapping("/details/{uid}")
-    public MemberDTO getMemberByUid(@PathVariable Integer uid) {
-        return service.getMemberByUid(uid);
+    @GetMapping("/members/details/{uid}")
+    public ResponseEntity<MemberDTO> getMemberByUid(@PathVariable Integer uid) {
+        return ResponseEntity.ok(service.getMemberByUid(uid));
     }
+//    public MemberDTO getMemberByUid(@PathVariable Integer uid) {
+//        return service.getMemberByUid(uid);
+//    }
 
     // ADD MEMBER
-    @PostMapping("/add")
+    @PostMapping("/members/add")
     public ResponseEntity<?> addMember(@RequestBody MemberDTO dto) {
         service.addMember(dto);
         return ResponseEntity.ok("Member added successfully");
     }
     
-    @GetMapping("/plan/{planId}/trainings")
+    @GetMapping("/members/plan/{planId}/trainings")
     public ResponseEntity<List<Map<String, Object>>> getMembersTrainings(@PathVariable int planId) {
         List<Map<String, Object>> list = service.getMembersTrainings(planId);
         return ResponseEntity.ok(list);

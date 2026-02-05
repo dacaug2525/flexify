@@ -13,21 +13,21 @@ import com.flexify.admin.dto.UserDTO;
 import com.flexify.admin.services.AdminDashboardService;
 
 @RestController
-@RequestMapping("/flexify/admin/dashboard")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/admin")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class AdminDashboardController {
 
 	@Autowired
     private AdminDashboardService dashboardService;
 
     // Dashboard stats (total trainers & members)
-    @GetMapping
+    @GetMapping("/dashboard")
     public ResponseEntity<AdminDashboardDTO> getStats() {
         return ResponseEntity.ok(dashboardService.getDashboardStats());
     }
 
     // Users with Trainer & Member role (Name, Email, Role only)
-    @GetMapping("/users")
+    @GetMapping("/dashboard/users")
     public ResponseEntity<List<UserDTO>> getUsers() {
         return ResponseEntity.ok(dashboardService.getTrainerAndMemberUsers());
     }

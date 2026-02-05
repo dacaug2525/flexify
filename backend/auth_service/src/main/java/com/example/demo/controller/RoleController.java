@@ -11,7 +11,7 @@ import com.example.demo.entities.Role;
 import com.example.demo.service.RoleService;
 
 @RestController
-@RequestMapping("/flexify")
+@RequestMapping("/auth")
 public class RoleController {
 	
 	@Autowired

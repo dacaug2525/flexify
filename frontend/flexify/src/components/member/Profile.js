@@ -46,7 +46,7 @@ const Profile = () => {
 
   /* ================= FETCH HEALTH CONDITIONS ================= */
   useEffect(() => {
-    fetch("http://localhost:8083/flexify/health/all")
+    fetch("http://localhost:8080/member/health/all")
       .then((res) => res.json())
       .then(setHealthList)
       .catch(() => {});

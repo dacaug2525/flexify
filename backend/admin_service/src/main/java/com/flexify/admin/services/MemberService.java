@@ -24,9 +24,12 @@ public class MemberService {
     // MEMBER DETAILS
 	public MemberDTO getMemberByUid(Integer uid) {
         Optional<Member> memberOpt = memberRepo.findByUid(uid);
+        
+        Member member = memberRepo.findByUid(uid)
+                .orElseThrow(() ->
+                    new RuntimeException("Member not found for uid: " + uid)
+                );
 
-        if (memberOpt.isPresent()) {
-            Member member = memberOpt.get();
             MemberDTO dto = new MemberDTO();
             dto.setDob(member.getDob());
             dto.setHeight(member.getHeight());
@@ -35,11 +38,27 @@ public class MemberService {
             dto.setJoinDate(member.getJoinDate());
             dto.setStatus(member.getStatus());
             dto.setUid(member.getUid());
+
             return dto;
-        } else {
-            return null; // or throw custom exception if you prefer
         }
-    }
+        
+        
+
+//        if (memberOpt.isPresent()) {
+//            Member member = memberOpt.get();
+//            MemberDTO dto = new MemberDTO();
+//            dto.setDob(member.getDob());
+//            dto.setHeight(member.getHeight());
+//            dto.setWeight(member.getWeight());
+//            dto.setAddress(member.getAddress());
+//            dto.setJoinDate(member.getJoinDate());
+//            dto.setStatus(member.getStatus());
+//            dto.setUid(member.getUid());
+//            return dto;
+//        } else {
+//            return null; // or throw custom exception if you prefer
+//        }
+//    }
 
     // ADD MEMBER (after login)
     public void addMember(MemberDTO dto) {

@@ -19,7 +19,7 @@ const AssignMembership = ({ memberId }) => {
 
     try {
       await axios.post(
-        "http://localhost:8083/flexify/member/membership/assign",
+        "http://localhost:8080/member/membership/assign",
         {
           memberId,
           planId,
