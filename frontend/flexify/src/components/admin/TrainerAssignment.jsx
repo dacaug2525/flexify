@@ -24,7 +24,7 @@ const TrainerAssignment = () => {
   const fetchMembers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/members/list"
+        "http://localhost:8080/admin/members/list"
       );
       setMembers(res.data || []);
     } catch (err) {
@@ -36,7 +36,7 @@ const TrainerAssignment = () => {
   const fetchTrainers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/trainers/list"
+        "http://localhost:8080/admin/trainers/list"
       );
       setTrainers(res.data || []);
     } catch (err) {
@@ -48,7 +48,7 @@ const TrainerAssignment = () => {
   const fetchAssignments = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/assignments/list"
+        "http://localhost:8080/admin/assignments/list"
       );
       setAssignments(res.data || []);
     } catch (err) {
@@ -69,7 +69,7 @@ const TrainerAssignment = () => {
     setLoading(true);
     try {
       await axios.post(
-        "http://localhost:8081/flexify/admin/assignments/assign-trainer",
+        "http://localhost:8080/admin/assignments/assign-trainer",
         {
           mid: selectedMember,
           tid: selectedTrainer,

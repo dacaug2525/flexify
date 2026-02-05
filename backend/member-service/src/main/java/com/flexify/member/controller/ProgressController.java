@@ -16,15 +16,15 @@ import com.flexify.member.service.ProgressService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("flexify/member/progress")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins="http://localhost:3000")
 public class ProgressController {
 	
 	@Autowired
     private ProgressService progressService;
 
     //  ADD PROGRESS
-    @PostMapping("/add")
+    @PostMapping("/progress/add")
     public ResponseEntity<String> addProgress(
             @Valid @RequestBody ProgressRequestDTO dto) {
 
@@ -33,7 +33,7 @@ public class ProgressController {
     }
 
     //  GET PROGRESS HISTORY
-    @GetMapping("/{mid}")
+    @GetMapping("/progress/{mid}")
     public ResponseEntity<?> getProgress(@PathVariable Integer mid) {
         return ResponseEntity.ok(progressService.history(mid));
     }

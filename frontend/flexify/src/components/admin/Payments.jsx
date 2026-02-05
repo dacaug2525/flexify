@@ -9,7 +9,7 @@ const Payments = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/flexify/admin/payments")
+      .get("http://localhost:8080/admin/payments")
       .then((res) => {
         setPayments(res.data);
         setLoading(false);

@@ -9,13 +9,13 @@ const AdminDashboard = () => {
   useEffect(() => {
     // Fetch dashboard stats
     axios
-      .get("http://localhost:8081/flexify/admin/dashboard")
+      .get("http://localhost:8080/admin/dashboard")
       .then((res) => setStats(res.data))
       .catch((err) => console.error("Error fetching dashboard stats", err));
 
     // Fetch users (Name, Email, Role)
     axios
-      .get("http://localhost:8081/flexify/admin/dashboard/users")
+      .get("http://localhost:8080/admin/dashboard/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.error("Error fetching users", err));
   }, []);

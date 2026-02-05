@@ -10,15 +10,15 @@ import com.flexify.member.dto.TrainerAssignmentResponseDTO;
 import com.flexify.member.service.TrainerAssignmentService;
 
 @RestController
-@RequestMapping("/flexify/member/trainer")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class TrainerAssignmentController {
 	
 	    @Autowired
 	    private TrainerAssignmentService service;
 
 	    /* ================= GET TRAINERS BY MEMBER ================= */
-	    @GetMapping("/{mid}")
+	    @GetMapping("/trainer/{mid}")
 	    public ResponseEntity<List<TrainerAssignmentResponseDTO>>
 	        getTrainersByMember(@PathVariable Integer mid) {
 

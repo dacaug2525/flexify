@@ -14,14 +14,14 @@ import com.flexify.member.service.FeedbackService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("flexify/member/feedback")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins="http://localhost:3000")
 public class FeedbackController {
 	
 	
 	    @Autowired
 	    private FeedbackService service;
-	    @PostMapping("/add")
+	    @PostMapping("/feedback/add")
 	    public ResponseEntity<?> add(@Valid @RequestBody FeedbackRequestDTO dto) {
 	        return ResponseEntity.ok(service.giveFeedback(dto));
 	    }

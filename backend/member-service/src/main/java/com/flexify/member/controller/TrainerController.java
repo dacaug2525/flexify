@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.flexify.member.service.TrainerService;
 
 @RestController
-@RequestMapping("/flexify/trainer")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class TrainerController {
 	
 
 	    @Autowired
 	    private TrainerService trainerService;
 
-	    @GetMapping("/by-member/{memberId}")
+	    @GetMapping("/trainer/by-member/{memberId}")
 	    public ResponseEntity<?> getTrainerByMember(
 	            @PathVariable Integer memberId) {
 

@@ -19,27 +19,27 @@ import com.flexify.admin.dto.TrainerDetailsDTO;
 import com.flexify.admin.services.TrainerService;
 
 @RestController
-@RequestMapping("/flexify/admin/trainers")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/admin")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class TrainerController {
 	
 		@Autowired
 	    private TrainerService trainerService;
 	
 	    /* ================= TRAINER LIST ================= */
-	    @GetMapping("/list")
+	    @GetMapping("/trainers/list")
 	    public List<TrainerDetailsDTO> getAllTrainers() {
 	        return trainerService.getAllTrainers();
 	    }
 	
 	    /* ================= TRAINER DETAILS ================= */
-	    @GetMapping("/details/{uid}")
+	    @GetMapping("/trainers/details/{uid}")
 	    public TrainerDetailsDTO getTrainerDetails(@PathVariable Integer uid) {
 	        return trainerService.getTrainerDetails(uid);
 	    }
 	    
 	 // Update salary
-	    @PutMapping("/update-salary/{tid}")
+	    @PutMapping("/trainers/update-salary/{tid}")
 	    public ResponseEntity<String> updateSalary(
 	            @PathVariable Integer tid,
 	            @RequestBody Map<String, Object> payload) {

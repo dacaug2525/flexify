@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.flexify.admin.entities.UserEntity;
 import com.flexify.admin.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/flexify/admin")
+@RequestMapping("/admin")
 public class UserController {
 	@Autowired
 	UserService userv;

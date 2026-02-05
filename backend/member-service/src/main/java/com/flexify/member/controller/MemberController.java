@@ -12,8 +12,8 @@ import com.flexify.member.repository.HealthConditionRepository;
 import com.flexify.member.service.MemberService;
 
 @RestController
-@RequestMapping("/flexify/member")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
 
 	    @Autowired

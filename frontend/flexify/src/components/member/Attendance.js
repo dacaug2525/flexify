@@ -24,7 +24,7 @@ const Attendance = () => {
     if (!mid) return;
     try {
       const res = await axios.get(
-        `http://localhost:8083/flexify/member/attendence/${mid}`,
+        `http://localhost:8080/member/attendence/${mid}`,
       );
       setHistory(res.data);
     } catch {
@@ -38,10 +38,10 @@ const Attendance = () => {
     try {
       const [p, a] = await Promise.all([
         axios.get(
-          `http://localhost:8083/flexify/member/attendence/count/${mid}/PRESENT`,
+          `http://localhost:8080/member/attendence/count/${mid}/PRESENT`,
         ),
         axios.get(
-          `http://localhost:8083/flexify/member/attendence/count/${mid}/ABSENT`,
+          `http://localhost:8080/member/attendence/count/${mid}/ABSENT`,
         ),
       ]);
       setPresentCount(p.data);

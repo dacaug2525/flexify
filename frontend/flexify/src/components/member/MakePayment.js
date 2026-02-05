@@ -20,7 +20,7 @@ const MakePayment = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:8083/flexify/payment/${member.mid}`,
+        `http://localhost:8080/member/payment/${member.mid}`,
       );
       setPayments(res.data);
     } catch {
@@ -36,7 +36,7 @@ const MakePayment = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8083/flexify/payment/pay",
+        "http://localhost:8080/member/payment/pay",
         {
           memberId: member.mid,
           planId,

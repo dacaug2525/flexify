@@ -68,7 +68,7 @@ public class Member {
 	    private List<MedInfo> medicalInfo = new ArrayList<>();
 
 	    public enum Status {
-	        active, inactive
+	        ACTIVE, INACTIVE
 	    }
 
 	    // getters and setters

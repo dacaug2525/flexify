@@ -15,26 +15,26 @@ import com.flexify.admin.entities.PlanDiscount;
 import com.flexify.admin.services.PlanDiscountService;
 
 @RestController
-@RequestMapping("/flexify/admin/discount")
+@RequestMapping("/admin")
 public class PlanDiscountController {
 	
 	@Autowired
 	private PlanDiscountService service;
 
     // READ ALL
-    @GetMapping("/getAllDiscount")
+    @GetMapping("/discount/getAllDiscount")
     public List<PlanDiscount> getAll() {
         return service.getAll();
     }
 
     // READ BY ID
-    @GetMapping("/getById/{id}")
+    @GetMapping("/discount/getById/{id}")
     public PlanDiscount getById(@PathVariable Integer id) {
         return service.getById(id);
     }
 
     // UPDATE
-    @PutMapping("/update/{id}")
+    @PutMapping("/discount/update/{id}")
     public PlanDiscount update(
             @PathVariable Integer id,
             @RequestBody PlanDiscount d) {
@@ -42,7 +42,7 @@ public class PlanDiscountController {
     }
 
     // DELETE
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/discount/delete/{id}")
     public String delete(@PathVariable Integer id) {
         service.delete(id);
         return "Plan discount deleted successfully";

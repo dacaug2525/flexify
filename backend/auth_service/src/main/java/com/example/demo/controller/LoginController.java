@@ -13,8 +13,8 @@ import com.example.demo.entities.User;
 import com.example.demo.service.LoginService;
 
 @RestController
-@RequestMapping("/flexify")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/auth")
+//@CrossOrigin(origins="http://localhost:3000")
 public class LoginController {
 	
 	@Autowired

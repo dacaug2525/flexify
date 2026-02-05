@@ -14,8 +14,8 @@ import com.flexify.member.repository.PaymentRepository;
 import com.flexify.member.service.PaymentService;
 
 @RestController
-@RequestMapping("/flexify/payment")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/member")
+//@CrossOrigin(origins="http://localhost:3000")
 public class PaymentController {
 
 	@Autowired
@@ -23,12 +23,12 @@ public class PaymentController {
     @Autowired
     private PaymentRepository paymentRepo;
 	// 💳 Purchase / Renew Membership
-	@PostMapping("/pay")
+	@PostMapping("/payment/pay")
 	public ResponseEntity<?> makePayment(@Valid @RequestBody PaymentRequestDTO dto) {
 		return ResponseEntity.ok(service.makePayment(dto));
 	}
 	
-	@GetMapping("/{memberId}")
+	@GetMapping("/payment/{memberId}")
 	public List<Payment> getPaymentsByMember(@PathVariable Integer memberId) {
 	    return paymentRepo.findByMid(memberId);
 	}

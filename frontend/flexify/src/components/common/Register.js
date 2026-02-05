@@ -85,7 +85,7 @@ function Register() {
         roleid: parseInt(user.roleid),
       };
 
-      await axios.post("http://localhost:8080/flexify/register", payload, {
+      await axios.post("http://localhost:8080/auth/register", payload, {
         headers: { "Content-Type": "application/json" },
       });
 

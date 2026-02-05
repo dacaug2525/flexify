@@ -37,7 +37,7 @@ public class MemberService {
 	        member.setAddress(dto.getAddress());
 	        member.setUid(dto.getUid());
 	        member.setJoinDate(LocalDateTime.now());
-	        member.setStatus(Member.Status.active);
+	        member.setStatus(Member.Status.ACTIVE);
 
 	        memberRepo.save(member);
 
@@ -117,7 +117,7 @@ public class MemberService {
 	    public void deleteMember(Integer mid) {
 	        Member member = memberRepo.findById(mid)
 	                .orElseThrow(() -> new RuntimeException("Member not found"));
-	        member.setStatus(Member.Status.inactive);
+	        member.setStatus(Member.Status.INACTIVE);
 	        memberRepo.save(member);
 	    }
 

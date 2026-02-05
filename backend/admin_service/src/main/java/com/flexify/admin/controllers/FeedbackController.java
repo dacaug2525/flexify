@@ -10,7 +10,7 @@ import com.flexify.admin.entities.Feedback;
 import com.flexify.admin.services.FeedbackService;
 
 @RestController
-@RequestMapping("/flexify/admin/feedbacks")
+@RequestMapping("/admin")
 public class FeedbackController {
 	@Autowired
 	private FeedbackService service;
@@ -19,7 +19,7 @@ public class FeedbackController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/feedbacks/allfeedbacks")
     public List<Feedback> getAllFeedback() {
         return service.getAllFeedback();
     }

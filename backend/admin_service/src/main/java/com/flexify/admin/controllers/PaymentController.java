@@ -11,7 +11,7 @@ import com.flexify.admin.entities.Payment;
 import com.flexify.admin.services.PaymentService;
 
 @RestController
-@RequestMapping("/flexify/admin/payments")
+@RequestMapping("/admin")
 public class PaymentController {
 	@Autowired
 	private PaymentService service;
@@ -21,7 +21,7 @@ public class PaymentController {
     }
 
  // GET all payments
-    @GetMapping
+    @GetMapping("/payments")
     public List<Payment> getAllPayments() {
         return service.getAllPayments();
     }

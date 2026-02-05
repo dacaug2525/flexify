@@ -16,8 +16,8 @@ import com.example.demo.entities.UserRegistrationDTO;
 import com.example.demo.service.UserService;
 
 @RestController
-@RequestMapping("/flexify")
-@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/auth")
+//@CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
 	 @Autowired

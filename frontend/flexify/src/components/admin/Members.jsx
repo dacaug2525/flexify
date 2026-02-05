@@ -12,7 +12,7 @@ const Members = () => {
   const fetchMembers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8081/flexify/admin/allmembers/3"
+        "http://localhost:8080/admin/allmembers/3"
       );
       setMembers(res.data);
     } catch (err) {
@@ -28,7 +28,7 @@ const Members = () => {
   const viewDetails = async (uid) => {
     try {
       const res = await axios.get(
-        `http://localhost:8081/flexify/admin/members/details/${uid}`
+        `http://localhost:8080/admin/members/details/${uid}`
       );
       setSelected(res.data);
     } catch (err) {

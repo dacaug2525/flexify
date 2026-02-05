@@ -6,7 +6,7 @@ export const fetchPlans = createAsyncThunk(
   "membership/fetchPlans",
   async () => {
     const res = await axios.get(
-      "http://localhost:8083/flexify/member/membership/plan",
+      "http://localhost:8080/member/membership/plan",
     );
     return res.data;
   },
@@ -17,7 +17,7 @@ export const fetchMemberMembership = createAsyncThunk(
   "membership/fetchMemberMembership",
   async (memberId) => {
     const res = await axios.get(
-      `http://localhost:8083/flexify/member/membership/${memberId}`,
+      `http://localhost:8080/member/membership/${memberId}`,
     );
     return res.data;
   },
